@@ -1,0 +1,53 @@
+﻿@model HeThongBanVeMayBay.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÊM MỚI NHÂN VIÊN</h2>
+@using (Html.BeginForm("Create", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table-bordered">
+        <tr>
+            <td> @Html.LabelFor(model => model.IDNhanVien)</td>
+            <td> @Html.EditorFor(model => model.IDNhanVien)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.TenNV)</td>
+            <td> @Html.EditorFor(model => model.TenNV)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.NgaySinh)</td>
+            <td> @Html.EditorFor(model => model.NgaySinh)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.NgayVaoLam)</td>
+            <td> @Html.EditorFor(model => model.NgayVaoLam)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.NgayNghiLam)</td>
+            <td> @Html.EditorFor(model => model.NgayNghiLam)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.ChucVu)</td>
+            <td> @Html.EditorFor(model => model.ChucVu)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.BoPhan)</td>
+            <td> @Html.DropDownListFor(model => model.BoPhan, (SelectList)ViewBag.listCategory)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.ImageEmp)</td>
+            <td> <img src="@Url.Content(Model.ImageEmp)" height="150" width="150" id="previewImg" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
+                <input type="submit" value="Tạo mới" />
+            </td>
+        </tr>
+    </table>
+}
+
+
