@@ -1,0 +1,35 @@
+﻿@model HeThongBanVeMayBay.Models.MAYBAY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MAYBAY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTauBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTauBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTauBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTauBay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -76,9 +76,9 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IDNhanVien" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TenNV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="7" />
-    <Property Name="NgayVaoLam" Type="DateTime" Nullable="false" Precision="7" />
-    <Property Name="NgayNghiLam" Type="DateTime" Precision="7" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NgayVaoLam" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NgayNghiLam" Type="DateTime" Precision="3" />
     <Property Name="ChucVu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="BoPhan" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="ImageEmp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

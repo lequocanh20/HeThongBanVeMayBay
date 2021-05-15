@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -24,8 +25,8 @@ namespace HeThongBanVeMayBay.Controllers
                         ID = item.ID,
                         IDNhanVien = item.IDNhanVien,
                         TenNV = item.TenNV,
-                        NgaySinh = item.NgaySinh,
-                        NgayVaoLam = item.NgayVaoLam,
+                        NgaySinh = item.NgaySinh.Date,
+                        NgayVaoLam = item.NgayVaoLam.Date,
                         NgayNghiLam = item.NgayNghiLam,
                         ChucVu = item.ChucVu,
                         BoPhan = item.CATEGORY.NameCate,
@@ -108,7 +109,7 @@ namespace HeThongBanVeMayBay.Controllers
                     filename = filename + extent;
                     nv.ImageEmp = "~/Content/images/" + filename;
                     nv.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), filename));
-                }
+                }                     
                 ViewBag.listCategory = new SelectList(list, "IDCate", "NameCate", 1);
                 database.SaveChanges();
                 return RedirectToAction("Index");

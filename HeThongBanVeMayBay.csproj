@@ -128,8 +128,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AircraftController.cs" />
+    <Compile Include="Controllers\AirportController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,6 +250,21 @@
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Aircraft\Index.cshtml" />
+    <Content Include="Views\Aircraft\Edit.cshtml" />
+    <Content Include="Views\Aircraft\Details.cshtml" />
+    <Content Include="Views\Aircraft\Delete.cshtml" />
+    <Content Include="Views\Aircraft\Create.cshtml" />
+    <Content Include="Views\Airport\Index.cshtml" />
+    <Content Include="Views\Airport\Create.cshtml" />
+    <Content Include="Views\Airport\Edit.cshtml" />
+    <Content Include="Views\Airport\Details.cshtml" />
+    <Content Include="Views\Airport\Delete.cshtml" />
+    <Content Include="Views\Flight\Index.cshtml" />
+    <Content Include="Views\Flight\Create.cshtml" />
+    <Content Include="Views\Flight\Details.cshtml" />
+    <Content Include="Views\Flight\Edit.cshtml" />
+    <Content Include="Views\Flight\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

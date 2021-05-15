@@ -1,4 +1,5 @@
 ﻿@model HeThongBanVeMayBay.Models.NHANVIEN
+@using HeThongBanVeMayBay.Models
 
 @{
     ViewBag.Title = "Create";
@@ -35,7 +36,10 @@
         </tr>
         <tr>
             <td> @Html.LabelFor(model => model.BoPhan)</td>
-            <td> @Html.DropDownListFor(model => model.BoPhan, (SelectList)ViewBag.listCategory)</td>
+            <td>
+                @Html.DropDownListFor(model => model.BoPhan, (SelectList)ViewBag.listCategory)
+                @*@Html.DropDownListFor(m => m.Sex, (SelectList)ViewBag.listCategory)*@
+            </td>
         </tr>
         <tr>
             <td> @Html.LabelFor(model => model.ImageEmp)</td>

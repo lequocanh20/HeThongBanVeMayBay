@@ -67,9 +67,9 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDNhanVien" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TenNV" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="NgaySinh" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="NgayVaoLam" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="NgayNghiLam" Type="datetime2" Precision="7" />
+    <Property Name="NgaySinh" Type="datetime" Nullable="false" />
+    <Property Name="NgayVaoLam" Type="datetime" Nullable="false" />
+    <Property Name="NgayNghiLam" Type="datetime" />
     <Property Name="ChucVu" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="BoPhan" Type="nchar" MaxLength="20" Nullable="false" />
     <Property Name="ImageEmp" Type="nvarchar(max)" />
