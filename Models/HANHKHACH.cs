@@ -22,11 +22,17 @@ namespace HeThongBanVeMayBay.Models
         }
     
         public int ID { get; set; }
+        public string UserName { get; set; }
+        public string Pass { get; set; }
         public string CMND { get; set; }
         public string TenHanhKhach { get; set; }
         public System.DateTime NgaySinh { get; set; }
+        public string GioiTinh { get; set; }
         public string DienThoai { get; set; }
+        public string ChucVu { get; set; }
+        public Nullable<decimal> ViDienTu { get; set; }
     
+        public virtual CHUCVU CHUCVU1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUDATCHO> PHIEUDATCHOes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

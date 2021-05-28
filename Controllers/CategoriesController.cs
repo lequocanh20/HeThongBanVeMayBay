@@ -7,13 +7,14 @@ using HeThongBanVeMayBay.Models;
 
 namespace HeThongBanVeMayBay.Controllers
 {
+    [Authorize(Roles = "true")]
     public class CategoriesController : Controller
     {
         // GET: Categories
         QLBANVEMAYBAYEntities database = new QLBANVEMAYBAYEntities();
         public ActionResult Index()
         {
-            return View(database.CATEGORies.ToList());
+            return View(database.PHONGBANs.ToList());
         }
         public ActionResult Create()
         {
@@ -21,11 +22,11 @@ namespace HeThongBanVeMayBay.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(CATEGORY cate)
+        public ActionResult Create(PHONGBAN Phongban)
         {
             try
             {
-                database.CATEGORies.Add(cate);
+                database.PHONGBANs.Add(Phongban);
                 database.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -36,33 +37,33 @@ namespace HeThongBanVeMayBay.Controllers
         }
         public ActionResult Details(int Id)
         {
-            return View(database.CATEGORies.Where(s => s.ID == Id).FirstOrDefault());
+            return View(database.PHONGBANs.Where(s => s.ID == Id).FirstOrDefault());
         }
         public ActionResult Edit(int Id)
         {
-            return View(database.CATEGORies.Where(s => s.ID == Id).FirstOrDefault());
+            return View(database.PHONGBANs.Where(s => s.ID == Id).FirstOrDefault());
         }
 
         [HttpPost]
-        public ActionResult Edit(int Id, CATEGORY Cate)
+        public ActionResult Edit(int Id, PHONGBAN Phongban)
         {
-            database.Entry(Cate).State = System.Data.Entity.EntityState.Modified;
+            database.Entry(Phongban).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int Id)
         {
-            return View(database.CATEGORies.Where(s => s.ID == Id).FirstOrDefault());
+            return View(database.PHONGBANs.Where(s => s.ID == Id).FirstOrDefault());
         }
 
         [HttpPost]
-        public ActionResult Delete(int Id, CATEGORY Cate)
+        public ActionResult Delete(int Id, PHONGBAN Phongban)
         {
             try
             {
-                Cate = database.CATEGORies.Where(s => s.ID == Id).FirstOrDefault();
-                database.CATEGORies.Remove(Cate);
+                Phongban = database.PHONGBANs.Where(s => s.ID == Id).FirstOrDefault();
+                database.PHONGBANs.Remove(Phongban);
                 database.SaveChanges();
                 return RedirectToAction("Index");
             }

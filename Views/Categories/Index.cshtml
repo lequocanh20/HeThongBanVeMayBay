@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HeThongBanVeMayBay.Models.CATEGORY>
+﻿@model IEnumerable<HeThongBanVeMayBay.Models.PHONGBAN>
 
 @{
     ViewBag.Title = "Index";
@@ -13,10 +13,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.IDCate)
+            @Html.DisplayNameFor(model => model.ID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NameCate)
+            @Html.DisplayNameFor(model => model.TenPhongBan)
         </th>
         <th></th>
     </tr>
@@ -24,10 +24,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IDCate)
+            @Html.DisplayFor(modelItem => item.ID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NameCate)
+            @Html.DisplayFor(modelItem => item.TenPhongBan)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
