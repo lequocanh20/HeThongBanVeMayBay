@@ -7,6 +7,7 @@ using HeThongBanVeMayBay.Models;
 
 namespace HeThongBanVeMayBay.Controllers
 {
+    [Authorize(Roles = "true, false")]
     public class AirportController : Controller
     {
         // GET: Airport
@@ -34,6 +35,7 @@ namespace HeThongBanVeMayBay.Controllers
                 return Content("Error Create New");
             }
         }
+
         public ActionResult Edit(int Id)
         {
             return View(database.SANBAYs.Where(s => s.ID == Id).FirstOrDefault());
@@ -50,6 +52,7 @@ namespace HeThongBanVeMayBay.Controllers
         {
             return View(database.SANBAYs.Where(s => s.ID == Id).FirstOrDefault());
         }
+        [Authorize(Roles = "true")]
         public ActionResult Delete(int Id)
         {
             return View(database.SANBAYs.Where(s => s.ID == Id).FirstOrDefault());

@@ -17,17 +17,14 @@ namespace HeThongBanVeMayBay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANBAY()
         {
-            this.CHI_TIET_LICH_CHUYEN_BAY = new HashSet<CHI_TIET_LICH_CHUYEN_BAY>();
             this.CHUYENBAYs = new HashSet<CHUYENBAY>();
             this.CHUYENBAYs1 = new HashSet<CHUYENBAY>();
         }
     
         public int ID { get; set; }
-        public string IDSanBay { get; set; }
+        public string IATA { get; set; }
         public string TenSB { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHI_TIET_LICH_CHUYEN_BAY> CHI_TIET_LICH_CHUYEN_BAY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHUYENBAY> CHUYENBAYs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

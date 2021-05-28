@@ -25,14 +25,14 @@ namespace HeThongBanVeMayBay.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AdminUser> AdminUsers { get; set; }
-        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<CHI_TIET_LICH_CHUYEN_BAY> CHI_TIET_LICH_CHUYEN_BAY { get; set; }
+        public virtual DbSet<CHUCVU> CHUCVUs { get; set; }
         public virtual DbSet<CHUYENBAY> CHUYENBAYs { get; set; }
+        public virtual DbSet<HANGBAY> HANGBAYs { get; set; }
         public virtual DbSet<HANHKHACH> HANHKHACHes { get; set; }
         public virtual DbSet<MAYBAY> MAYBAYs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<PHIEUDATCHO> PHIEUDATCHOes { get; set; }
+        public virtual DbSet<PHONGBAN> PHONGBANs { get; set; }
         public virtual DbSet<SANBAY> SANBAYs { get; set; }
         public virtual DbSet<VECHUYENBAY> VECHUYENBAYs { get; set; }
     }

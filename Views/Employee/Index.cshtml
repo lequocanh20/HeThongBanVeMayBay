@@ -6,6 +6,10 @@
 }
 
 <h2>DANH SÁCH NHÂN VIÊN</h2>
+<div>
+    @{ Html.RenderAction("GetAddNewLink");}
+    <a href="/Authentication/Logout">Logout</a>
+</div>
 <div class="container">
     <div class="row">
         @foreach (var emp in Model)
@@ -28,6 +32,10 @@
                         <tr>
                             <td> @Html.LabelFor(model => emp.TenNV)</td>
                             <td class="space"> @Html.DisplayFor(model => emp.TenNV)</td>
+                        </tr>
+                        <tr>
+                            <td> @Html.LabelFor(model => emp.GioiTinh)</td>
+                            <td class="space"> @Html.DisplayFor(model => emp.GioiTinh)</td>
                         </tr>
                         <tr>
                             <td> @Html.LabelFor(model => emp.NgaySinh)</td>

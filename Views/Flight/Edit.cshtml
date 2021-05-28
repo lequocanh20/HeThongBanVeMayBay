@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>CHUYENBAY</h4>
         <hr />
@@ -21,15 +21,23 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDChuyenBay, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IDChuyenBay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.IDChuyenBay, (SelectList)ViewBag.listMayBay, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IDChuyenBay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HangBay, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.HangBay, (SelectList)ViewBag.listHangBay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HangBay, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IDSanBayDi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IDSanBayDi, (SelectList)ViewBag.listSanBay)
+                @Html.DropDownListFor(model => model.IDSanBayDi, (SelectList)ViewBag.listSanBay, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IDSanBayDi, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -37,7 +45,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDSanBayDen, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IDSanBayDen, (SelectList)ViewBag.listSanBay)
+                @Html.DropDownListFor(model => model.IDSanBayDen, (SelectList)ViewBag.listSanBay, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IDSanBayDen, "", new { @class = "text-danger" })
             </div>
         </div>
