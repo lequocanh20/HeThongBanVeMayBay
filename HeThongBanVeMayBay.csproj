@@ -52,6 +52,12 @@
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -165,6 +171,7 @@
     <Compile Include="Models\HANGBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HangVe.cs" />
     <Compile Include="Models\HANHKHACH.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
@@ -1913,6 +1920,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\add.jpg" />
     <Content Include="Content\images\background.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2111,6 +2119,7 @@
       <DependentUpon>DBEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\HideDate.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -2159,7 +2168,6 @@
     <Content Include="Views\Office\Details.cshtml" />
     <Content Include="Views\Office\Edit.cshtml" />
     <Content Include="Views\Office\Delete.cshtml" />
-    <Content Include="Views\BookTicket\Index.cshtml" />
     <Content Include="Views\Aviation\Index.cshtml" />
     <Content Include="Views\Aviation\Create.cshtml" />
     <Content Include="Views\Aviation\Edit.cshtml" />
@@ -2177,6 +2185,10 @@
     <Content Include="Views\HomePage\Service.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Office\Create.cshtml" />
+    <Content Include="Views\BookTicket\Index.cshtml" />
+    <Content Include="Views\BookTicket\Search.cshtml" />
+    <Content Include="Views\BookTicket\RenderOneWay.cshtml" />
+    <Content Include="Views\BookTicket\RenderTwoWay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

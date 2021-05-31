@@ -1,15 +1,4 @@
-﻿@model IEnumerable<HeThongBanVeMayBay.Models.CHUYENBAY>
-@using HeThongBanVeMayBay.Models
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+﻿@*@model IEnumerable<HeThongBanVeMayBay.Models.CHUYENBAY>
 <table class="table">
     <tr>
         <th>
@@ -48,24 +37,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IDChuyenBay)
             </td>
-            @using (var context = new QLBANVEMAYBAYEntities())
-            {
-                foreach (var item1 in context.HANGBAYs)
-                {
-                    if (item.HangBay == item1.IDHangBay)
-                    {
-                        <td>
-                            <img src="@Url.Content(item1.ImageEmp)" width="100" height="50" />
-                            @*@Html.DisplayFor(modelItem => item.HangBay)*@
-                        </td>
-                    }
-                }
-            }
             <td>
-                @Html.DisplayFor(modelItem => item.SANBAY.TenSB)
+                @Html.DisplayFor(modelItem => item.HangBay)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SANBAY1.TenSB)
+                @Html.DisplayFor(modelItem => item.IDSanBayDi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDSanBayDen)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GiaTien)
@@ -82,12 +61,23 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SoGheHang2)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
         </tr>
     }
-
-</table>
+</table>*@
+@{
+    ViewBag.Title = "PartialView";
+    <h2>@ViewBag.Message</h2>
+    <div>
+        @{
+            if(ViewData["ReturnDate"] != null)
+            {
+                Html.RenderAction("RenderOneWay");
+                Html.RenderAction("RenderTwoWay");
+            }
+            else
+            {
+                Html.RenderAction("RenderOneWay");
+            }    
+        }
+    </div>  
+}

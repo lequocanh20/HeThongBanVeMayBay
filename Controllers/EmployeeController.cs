@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HeThongBanVeMayBay.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace HeThongBanVeMayBay.Controllers
 {
@@ -75,10 +77,12 @@ namespace HeThongBanVeMayBay.Controllers
         }
 
         [Authorize(Roles = "true")]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var lsNV = SelectAllArticle().ToList();
-            return View(lsNV);
+            int pageSize = 3;
+            int pageNum = (page ?? 1);
+            var lsNV = SelectAllArticle().OrderBy(x => x.NgayVaoLam).ToList();
+            return View(lsNV.ToPagedList(pageNum, pageSize));
             
         }
 
