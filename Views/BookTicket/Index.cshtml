@@ -1,4 +1,6 @@
-﻿@model HeThongBanVeMayBay.Models.SANBAY
+﻿@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,14 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <title>Booking Form HTML Template</title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.min.css" />
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="~/Content/style.css" />
@@ -29,116 +30,120 @@
 </head>
 
 <body>
-    <div id="booking" class="section">
-        <div class="section-center">
-            <div class="container">
-                <div class="row">
-                    <div class="booking-form">
-                        <form>
-                            <div class="form-group">
-                                <div class="form-checkbox">
-                                    <label for="roundtrip">
-                                        <input type="radio" class="ItineraryRadio" id="roundtrip" name="flight-type" onchange="ToggleDatepicker()" value="2">
-                                        <span></span>Roundtrip
-                                    </label>
-                                    <label for="one-way">
-                                        <input type="radio" class="ItineraryRadio" id="one-way" name="flight-type" checked onchange="ToggleDatepicker()" value="1">
-                                        <span></span>One way
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <span class="form-label">Flying from</span>
-                                        @Html.DropDownListFor(model => model.IATA, (SelectList)ViewBag.listSanBay,"-- Departure --", new { @class = "form-control" })
+    @using (Html.BeginForm("Search", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="booking" class="section">
+            <div class="section-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="booking-form">
+                            <form>
+                                <div class="form-group">
+                                    <div class="form-checkbox">
+                                        <label for="roundtrip">
+                                            <input type="radio" class="ItineraryRadio" id="roundtrip" name="flight_type" onchange="ToggleDatepicker()" value="2">
+                                            <span></span>Roundtrip
+                                        </label>
+                                        <label for="one-way">
+                                            <input type="radio" class="ItineraryRadio" id="one-way" name="flight_type" checked onchange="ToggleDatepicker()" value="1">
+                                            <span></span>One way
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <span class="form-label">Flyning to</span>
-                                        @Html.DropDownListFor(model => model.IATA, (SelectList)ViewBag.listSanBay, "-- Arrival --", new { @class = "form-control" })
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flying from</span>
+                                            <select name="FlyingFrom" class="form-control">
+                                                @using (var context = new HeThongBanVeMayBay.Models.QLBANVEMAYBAYEntities())
+                                                {
+                                                    foreach (var item in context.SANBAYs)
+                                                    {
+
+                                                        <option value="@item.IATA">@item.TenSB</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flying to</span>
+                                            <select name="FlyingTo" class="form-control">
+                                                @using (var context = new HeThongBanVeMayBay.Models.QLBANVEMAYBAYEntities())
+                                                {
+                                                    foreach (var item in context.SANBAYs)
+                                                    {
+                                                        <option value="@item.IATA">@item.TenSB</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <span class="form-label">Departing</span>
-                                        <input class="form-control" type="date" required>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <span class="form-label">Departing</span>
+                                            <input name="DepartDate" class="form-control" type="date" required id="txtDepartDate">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" id="divtxtReturnDate" style="visibility: hidden;">
+                                        <div class="form-group">
+                                            <span class="form-label">Returning</span>
+                                            <input name="ReturnDate" class="form-control" type="date" id="txtReturnDate">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <span class="form-label">Adults (18+)</span>
+                                            <select class="form-control">
+                                                <option value=1>1</option>
+                                                <option value=2>2</option>
+                                                <option value=3>3</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <span class="form-label">Children (0-17)</span>
+                                            <select class="form-control">
+                                                <option value=0>0</option>
+                                                <option value=1>1</option>
+                                                <option value=2>2</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3" id="divtxtReturnDate" style="display:none;visibility: hidden;">
-                                    <div class="form-group">
-                                        <span class="form-label">Returning</span>
-                                        <input name="txtReturnDate" class="form-control" type="date" required id="txtReturnDate">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <span class="form-label">Travel class</span>
+                                            <select name="Ticket" class="form-control">
+                                                @foreach (var item in ViewBag.HangVeList)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-btn">
+                                            <button class="submit-btn">Show flights</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <span class="form-label">Adults (18+)</span>
-                                        <select class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
-                                        <span class="select-arrow"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <span class="form-label">Children (0-17)</span>
-                                        <select class="form-control">
-                                            <option>0</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                        </select>
-                                        <span class="select-arrow"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <span class="form-label">Travel class</span>
-                                        <select class="form-control">
-                                            <option>Economy class</option>
-                                            <option>Business class</option>
-                                            <option>First class</option>
-                                        </select>
-                                        <span class="select-arrow"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-btn">
-                                        <button class="submit-btn">Show flights</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        $('.ItineraryRadio').on('ifChanged', function (event) { ToggleDatepicker(); });
-        function ToggleDatepicker() {
-            var check_value = $('.ItineraryRadio:checked').val();
-            if (check_value == 1) {
-                $("#divtxtReturnDate").attr('style', 'visibility: hidden;');
-                $("#ngayvetieude").attr('style', 'visibility: hidden;');
-
-                $("#txtReturnDate").removeAttr("required");
-            }
-            else {
-                $("#divtxtReturnDate").attr('style', 'visibility: visible;');
-                $("#ngayvetieude").attr('style', 'visibility: visible;');
-                $("#divtxtReturnDate").datepicker("option", "minDate", $("#txtDepartureDate").datepicker("getDate"));
-                $("#txtReturnDate").attr("required", "");
-            }
-        }
-    </script>
+    }
+    @Scripts.Render("~/bundles/jquery")
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

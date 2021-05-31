@@ -1,0 +1,73 @@
+﻿@using HeThongBanVeMayBay.Models;
+@model IEnumerable<HeThongBanVeMayBay.Models.CHUYENBAY>
+@{
+    Layout = null;
+}
+<h2>Chiều về</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDChuyenBay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HangBay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSanBayDi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSanBayDen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayGio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThoiGianBay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoGheHang1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoGheHang2)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (CHUYENBAY chuyenbay in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.IDChuyenBay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.HangBay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.IDSanBayDi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.IDSanBayDen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.GiaTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.NgayGio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.ThoiGianBay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.SoGheHang1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.SoGheHang2)
+            </td>
+            <td>
+                <input type="submit" value="Chọn" />
+            </td>
+        </tr>
+    }
+</table>
