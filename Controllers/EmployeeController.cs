@@ -26,8 +26,8 @@ namespace HeThongBanVeMayBay.Controllers
                     rtn.Add(new NHANVIEN
                     {
                         ID = item.ID,
-                        IDNhanVien = item.IDNhanVien,
                         TenNV = item.TenNV,
+                        Email = item.Email,
                         GioiTinh = item.GioiTinh,
                         NgaySinh = item.NgaySinh.Date,
                         NgayVaoLam = item.NgayVaoLam.Date,

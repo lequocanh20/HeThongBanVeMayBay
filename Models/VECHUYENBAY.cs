@@ -16,10 +16,10 @@ namespace HeThongBanVeMayBay.Models
     {
         public int ID { get; set; }
         public string IDVeChuyenBay { get; set; }
-        public string IDChuyenBay { get; set; }
+        public int IDChuyenBay { get; set; }
         public string CMND { get; set; }
         public int GiaTien { get; set; }
-        public string LOAIVE { get; set; }
+        public string LoaiVe { get; set; }
     
         public virtual CHUYENBAY CHUYENBAY { get; set; }
         public virtual HANHKHACH HANHKHACH { get; set; }

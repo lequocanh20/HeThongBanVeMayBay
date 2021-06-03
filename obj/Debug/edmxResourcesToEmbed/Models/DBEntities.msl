@@ -33,7 +33,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IDHangBay" ColumnName="IDHangBay" />
           <ScalarProperty Name="TenHangbay" ColumnName="TenHangbay" />
-          <ScalarProperty Name="ImageEmp" ColumnName="ImageEmp" />
+          <ScalarProperty Name="ImageAviation" ColumnName="ImageAviation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -43,6 +43,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
           <ScalarProperty Name="TenHanhKhach" ColumnName="TenHanhKhach" />
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
@@ -68,9 +69,9 @@
       <EntityTypeMapping TypeName="QLBANVEMAYBAYModel.NHANVIEN">
         <MappingFragment StoreEntitySet="NHANVIEN">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="IDNhanVien" ColumnName="IDNhanVien" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="TenNV" ColumnName="TenNV" />
           <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
@@ -90,7 +91,7 @@
           <ScalarProperty Name="IDChuyenBay" ColumnName="IDChuyenBay" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
           <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
-          <ScalarProperty Name="LOAIVE" ColumnName="LOAIVE" />
+          <ScalarProperty Name="LoaiVe" ColumnName="LoaiVe" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -121,7 +122,7 @@
           <ScalarProperty Name="IDChuyenBay" ColumnName="IDChuyenBay" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
           <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
-          <ScalarProperty Name="LOAIVE" ColumnName="LOAIVE" />
+          <ScalarProperty Name="LoaiVe" ColumnName="LoaiVe" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

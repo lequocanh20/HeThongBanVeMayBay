@@ -1,10 +1,11 @@
 ﻿@using HeThongBanVeMayBay.Models;
 @model IEnumerable<HeThongBanVeMayBay.Models.CHUYENBAY>
-@{ 
+@{
     Layout = null;
+    
 }
 <h2>Chiều đi</h2>
-<table class="table">
+<table class="table">   
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.IDChuyenBay)
@@ -26,12 +27,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ThoiGianBay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoGheHang1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoGheHang2)
         </th>
         <th></th>
     </tr>
@@ -58,21 +53,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => chuyenbay.ThoiGianBay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => chuyenbay.SoGheHang1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => chuyenbay.SoGheHang2)
-            </td>
-            <td>
-                @*<a href="/BookTicket/OrderOneWay/@chuyenbay.ID" class="btn btn-default">Chọn</a>*@
-                <input type="radio" name="motchieu" value="@chuyenbay.ID" />
-                @if (Convert.ToString(Session["ReturnDate"]) == "")
-                {
-                    <input type="hidden" name="khuhoi" value="0" />
-                    Session.Remove("ReturnDate");
-                }
             </td>
         </tr>
     }

@@ -20,11 +20,11 @@ namespace HeThongBanVeMayBay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HANGBAY()
         {
-            ImageEmp = "~/Content/images/add.jpg";
+            ImageAviation = "~/Content/images/add.jpg";
             this.CHUYENBAYs = new HashSet<CHUYENBAY>();
             this.MAYBAYs = new HashSet<MAYBAY>();
         }
-
+    
         public int ID { get; set; }
 
         [Display(Name = "Mã hãng hàng không")]
@@ -34,7 +34,7 @@ namespace HeThongBanVeMayBay.Models
         public string TenHangbay { get; set; }
 
         [Display(Name = "Avatar")]
-        public string ImageEmp { get; set; }
+        public string ImageAviation { get; set; }
 
         [NotMapped]
         public HttpPostedFileBase UploadImage { get; set; }

@@ -41,7 +41,7 @@ namespace HeThongBanVeMayBay.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.HangVeList = new SelectList(GetAllCategories(), "Id", "Name");
+            ViewBag.HangVeList = new SelectList(GetAllCategories(), "Id", "Name");           
             List<SANBAY> list = SelectAllArticle().ToList();
             ViewBag.listSanBay = new SelectList(list, "IATA", "TenSB", 1);
             return View();
@@ -60,11 +60,10 @@ namespace HeThongBanVeMayBay.Controllers
             //    //var list1 = database.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingTo + "' AND IDSanBayDen = '" + FlyingFrom + "' AND NgayGio = '" + ReturnDate.Value.ToString("yyyy/MM/dd") + "'").ToList();
             //    //return View(list);
             //}
-            ViewData["DepartDate"] = DepartDate;
-            ViewData["ReturnDate"] = ReturnDate;
+            Session["ReturnDate"] = ReturnDate;
             return View();
         }
-        public static List<CHUYENBAY> OneWay(string FlyingFrom, string FlyingTo, DateTime? DepartDate)
+        public static List<CHUYENBAY> OneWay(string FlyingFrom, string FlyingTo, DateTime? DepartDate, string SoLuong)
         {
             var rtn = new List<CHUYENBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
@@ -113,13 +112,87 @@ namespace HeThongBanVeMayBay.Controllers
             return rtn;
         }
 
-        public PartialViewResult RenderOneWay(string FlyingFrom, string FlyingTo, DateTime? DepartDate, DateTime? ReturnDate)
+        public PartialViewResult RenderOneWay(string FlyingFrom, string FlyingTo, DateTime? DepartDate, DateTime? ReturnDate, string Adult)
         {
-            return PartialView(OneWay(FlyingFrom, FlyingTo, DepartDate));
+            Session["Adult"] = Adult;
+            return PartialView(OneWay(FlyingFrom, FlyingTo, DepartDate, Adult));
         }
+
         public PartialViewResult RenderTwoWay(string FlyingFrom, string FlyingTo, DateTime? DepartDate, DateTime? ReturnDate)
         {
             return PartialView(TwoWay(FlyingFrom, FlyingTo, ReturnDate));              
         }
+
+        public List<CHUYENBAY> ChooseOneWay(int Id)
+        {
+            var rtn = new List<CHUYENBAY>();
+            using (var context = new QLBANVEMAYBAYEntities())
+            {
+                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE ID = "+ Id +"").ToList())
+                {
+                    rtn.Add(new CHUYENBAY
+                    {
+                        ID = item.ID,
+                        IDChuyenBay = item.IDChuyenBay,
+                        HangBay = item.HANGBAY1.TenHangbay,
+                        IDSanBayDen = item.SANBAY1.TenSB,
+                        IDSanBayDi = item.SANBAY.TenSB,
+                        GiaTien = item.GiaTien * Convert.ToInt32(Session["Adult"]),
+                        NgayGio = item.NgayGio.Date,
+                        ThoiGianBay = item.ThoiGianBay,
+                    });
+                }
+            }
+            return rtn;
+        }
+
+        public List<CHUYENBAY> ChooseTwoWay(int Id)
+        {
+            var rtn = new List<CHUYENBAY>();
+            using (var context = new QLBANVEMAYBAYEntities())
+            {
+                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE ID = " + Id + "").ToList())
+                {
+                    rtn.Add(new CHUYENBAY
+                    {
+                        ID = item.ID,
+                        IDChuyenBay = item.IDChuyenBay,
+                        HangBay = item.HANGBAY1.TenHangbay,
+                        IDSanBayDen = item.SANBAY1.TenSB,
+                        IDSanBayDi = item.SANBAY.TenSB,
+                        GiaTien = item.GiaTien * Convert.ToInt32(Session["Adult"]),
+                        NgayGio = item.NgayGio.Date,
+                        ThoiGianBay = item.ThoiGianBay,
+                    });
+                }
+            }
+            return rtn;
+        }
+
+        public PartialViewResult OrderOneWay(int Id)
+        {
+            Session["IDChieuDi"] = Id;
+            return PartialView(ChooseOneWay(Id));
+        }
+
+        public PartialViewResult OrderTwoWay(int Id)
+        {            
+            return PartialView(ChooseTwoWay(Id));
+        }
+
+        public ActionResult Accept(int motchieu, int khuhoi)
+        {
+            if (khuhoi == 0)
+            {
+                string url = "/BookTicket/OrderOneWay/" + motchieu;              
+                return Redirect(url);
+            }    
+            else
+            {
+                string url = "/BookTicket/OrderOneWay/" + motchieu;
+                Session["IDChieuVe"] = khuhoi;
+                return Redirect(url);
+            }    
+        }    
     }
 }

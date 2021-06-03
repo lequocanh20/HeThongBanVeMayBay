@@ -21,16 +21,18 @@ namespace HeThongBanVeMayBay.Models
         {
             ImageEmp = "~/Content/images/add.jpg";
         }
-        public int ID { get; set; }
 
-        [Display(Name = "Mã NV: ")]
-        public string IDNhanVien { get; set; }
+        public int ID { get; set; }
 
         [Display(Name = "Tài khoản: ")]
         public string UserName { get; set; }
 
         [Display(Name = "Mật khẩu: ")]
         public string Pass { get; set; }
+
+        [Display(Name = "Emai: ")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
         [Display(Name = "Tên NV: ")]
         public string TenNV { get; set; }

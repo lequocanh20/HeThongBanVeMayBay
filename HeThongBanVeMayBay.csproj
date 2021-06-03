@@ -140,6 +140,7 @@
     <Compile Include="Controllers\AviationController.cs" />
     <Compile Include="Controllers\BookTicketController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Models\PHONGBAN.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RandomGenerator.cs" />
     <Compile Include="Models\SANBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
@@ -2189,9 +2191,15 @@
     <Content Include="Views\BookTicket\Search.cshtml" />
     <Content Include="Views\BookTicket\RenderOneWay.cshtml" />
     <Content Include="Views\BookTicket\RenderTwoWay.cshtml" />
+    <Content Include="Views\BookTicket\OrderOneWay.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\OrderOneWay.cshtml" />
+    <Content Include="Views\BookTicket\OrderTwoWay.cshtml" />
+    <Content Include="Views\Customer\OrderTwoWay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\SendMail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

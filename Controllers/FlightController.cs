@@ -64,7 +64,7 @@ namespace HeThongBanVeMayBay.Controllers
                     {
                         IDHangBay = item.IDHangBay,
                         TenHangbay = item.TenHangbay,
-                        ImageEmp = item.ImageEmp
+                        ImageAviation = item.ImageAviation
                     });
                 }
             }

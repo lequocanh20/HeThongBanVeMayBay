@@ -21,7 +21,7 @@ namespace HeThongBanVeMayBay.Models
             this.HANHKHACHes = new HashSet<HANHKHACH>();
             this.NHANVIENs = new HashSet<NHANVIEN>();
         }
-
+    
         public int ID { get; set; }
 
         [Display(Name = "Mã chức vụ")]

@@ -32,9 +32,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ImageEmp, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ImageAviation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <img src="@Url.Content(Model.ImageEmp)" height="150" width="150" id="previewImg" />
+                <img src="@Url.Content(Model.ImageAviation)" height="150" width="150" id="previewImg" />
                 <input type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
             </div>
         </div>

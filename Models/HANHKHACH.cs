@@ -11,7 +11,8 @@ namespace HeThongBanVeMayBay.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class HANHKHACH
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,9 +25,18 @@ namespace HeThongBanVeMayBay.Models
         public int ID { get; set; }
         public string UserName { get; set; }
         public string Pass { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [DataType(DataType.Text)]
         public string CMND { get; set; }
         public string TenHanhKhach { get; set; }
-        public System.DateTime NgaySinh { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        public System.DateTime NgaySinh { get; set; } = new DateTime(2000, 01, 01);
+
         public string GioiTinh { get; set; }
         public string DienThoai { get; set; }
         public string ChucVu { get; set; }

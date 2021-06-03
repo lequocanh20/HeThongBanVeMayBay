@@ -15,8 +15,13 @@ namespace HeThongBanVeMayBay.Models
 
     public partial class MAYBAY
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MAYBAY()
+        {
+            this.CHUYENBAYs = new HashSet<CHUYENBAY>();
+        }
+    
         public int ID { get; set; }
-
         [Display(Name = "Số hiệu máy bay")]
         public string IDMayBay { get; set; }
 
@@ -29,7 +34,8 @@ namespace HeThongBanVeMayBay.Models
         [Display(Name = "Hãng hàng không")]
         public string HangBay { get; set; }
 
-        public virtual CHUYENBAY CHUYENBAY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHUYENBAY> CHUYENBAYs { get; set; }
         public virtual HANGBAY HANGBAY1 { get; set; }
     }
 }

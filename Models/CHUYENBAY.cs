@@ -21,9 +21,8 @@ namespace HeThongBanVeMayBay.Models
             this.PHIEUDATCHOes = new HashSet<PHIEUDATCHO>();
             this.VECHUYENBAYs = new HashSet<VECHUYENBAY>();
         }
-
+    
         public int ID { get; set; }
-
         [Display(Name = "Mã chuyến bay")]
         public string IDChuyenBay { get; set; }
 
