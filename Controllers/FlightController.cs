@@ -27,8 +27,9 @@ namespace HeThongBanVeMayBay.Controllers
                         IDSanBayDen = item.SANBAY1.TenSB,
                         IDSanBayDi = item.SANBAY.TenSB,
                         GiaTien = item.GiaTien,
-                        NgayGio = item.NgayGio.Date,
-                        ThoiGianBay = item.ThoiGianBay,
+                        NgayBay = item.NgayBay.Date,
+                        GioBay = item.GioBay,
+                        ThoiGianToiDuKien = item.ThoiGianToiDuKien,
                         SoGheHang1 = item.SoGheHang1,
                         SoGheHang2 = item.SoGheHang2
                     });

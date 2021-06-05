@@ -63,12 +63,27 @@ namespace HeThongBanVeMayBay.Controllers
             Session["ReturnDate"] = ReturnDate;
             return View();
         }
+
+        public ActionResult SearchDatCho(string madatcho, MADATCHO mdc)
+        {
+            var rtn = from p in database.PHIEUDATCHOes
+                      join c in database.CHUYENBAYs on p.IDChuyenBay equals c.ID
+                      where p.IDDatCho == madatcho
+                      select new { IDSanBayDi = c.SANBAY.TenSB, IDSanBayDen = c.SANBAY1.TenSB, HangBay = c.HANGBAY1.TenHangbay, NgayBay = c.NgayBay, GioBay = c.GioBay, GiaTien = p.GiaTien };
+            mdc.IDSanBayDi = rtn.Select(a => a.IDSanBayDi).FirstOrDefault();
+            mdc.IDSanBayDen = rtn.Select(a => a.IDSanBayDen).FirstOrDefault();
+            mdc.HangBay = rtn.Select(a => a.HangBay).FirstOrDefault();
+            mdc.NgayBay = rtn.Select(a => a.NgayBay).FirstOrDefault();
+            mdc.GioBay = rtn.Select(a => a.GioBay).FirstOrDefault();
+            mdc.GiaTien = rtn.Select(a => a.GiaTien).FirstOrDefault();
+            return View(mdc);
+        }
         public static List<CHUYENBAY> OneWay(string FlyingFrom, string FlyingTo, DateTime? DepartDate, string SoLuong)
         {
             var rtn = new List<CHUYENBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingFrom + "' AND IDSanBayDen = '" + FlyingTo + "' AND NgayGio = '" + DepartDate.Value.ToString("yyyy/MM/dd") + "'").ToList())
+                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingFrom + "' AND IDSanBayDen = '" + FlyingTo + "' AND NgayBay = '" + DepartDate.Value.ToString("yyyy/MM/dd") + "'").ToList())
                 {
                     rtn.Add(new CHUYENBAY
                     {
@@ -78,8 +93,9 @@ namespace HeThongBanVeMayBay.Controllers
                         IDSanBayDen = item.SANBAY1.TenSB,
                         IDSanBayDi = item.SANBAY.TenSB,
                         GiaTien = item.GiaTien,
-                        NgayGio = item.NgayGio.Date,
-                        ThoiGianBay = item.ThoiGianBay,
+                        NgayBay = item.NgayBay.Date,
+                        GioBay = item.GioBay,
+                        ThoiGianToiDuKien = item.ThoiGianToiDuKien,
                         SoGheHang1 = item.SoGheHang1,
                         SoGheHang2 = item.SoGheHang2
                     });
@@ -92,7 +108,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<CHUYENBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingTo + "' AND IDSanBayDen = '" + FlyingFrom + "' AND NgayGio = '" + ReturnDate.Value.ToString("yyyy/MM/dd") + "'").ToList())
+                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingTo + "' AND IDSanBayDen = '" + FlyingFrom + "' AND NgayBay = '" + ReturnDate.Value.ToString("yyyy/MM/dd") + "'").ToList())
                 {
                     rtn.Add(new CHUYENBAY
                     {
@@ -102,8 +118,9 @@ namespace HeThongBanVeMayBay.Controllers
                         IDSanBayDen = item.SANBAY1.TenSB,
                         IDSanBayDi = item.SANBAY.TenSB,
                         GiaTien = item.GiaTien,
-                        NgayGio = item.NgayGio.Date,
-                        ThoiGianBay = item.ThoiGianBay,
+                        NgayBay = item.NgayBay.Date,
+                        GioBay = item.GioBay,
+                        ThoiGianToiDuKien = item.ThoiGianToiDuKien,
                         SoGheHang1 = item.SoGheHang1,
                         SoGheHang2 = item.SoGheHang2
                     });
@@ -138,8 +155,9 @@ namespace HeThongBanVeMayBay.Controllers
                         IDSanBayDen = item.SANBAY1.TenSB,
                         IDSanBayDi = item.SANBAY.TenSB,
                         GiaTien = item.GiaTien * Convert.ToInt32(Session["Adult"]),
-                        NgayGio = item.NgayGio.Date,
-                        ThoiGianBay = item.ThoiGianBay,
+                        NgayBay = item.NgayBay.Date,
+                        GioBay = item.GioBay,
+                        ThoiGianToiDuKien = item.ThoiGianToiDuKien,
                     });
                 }
             }
@@ -161,8 +179,9 @@ namespace HeThongBanVeMayBay.Controllers
                         IDSanBayDen = item.SANBAY1.TenSB,
                         IDSanBayDi = item.SANBAY.TenSB,
                         GiaTien = item.GiaTien * Convert.ToInt32(Session["Adult"]),
-                        NgayGio = item.NgayGio.Date,
-                        ThoiGianBay = item.ThoiGianBay,
+                        NgayBay = item.NgayBay.Date,
+                        GioBay = item.GioBay,
+                        ThoiGianToiDuKien = item.ThoiGianToiDuKien,
                     });
                 }
             }

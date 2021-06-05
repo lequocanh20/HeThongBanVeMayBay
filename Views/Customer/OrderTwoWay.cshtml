@@ -23,10 +23,13 @@
             @Html.DisplayNameFor(model => model.GiaTien)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayGio)
+            @Html.DisplayNameFor(model => model.NgayBay)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ThoiGianBay)
+            @Html.DisplayNameFor(model => model.GioBay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThoiGianToiDuKien)
         </th>
         <th></th>
     </tr>
@@ -49,10 +52,13 @@
                 @Html.DisplayFor(modelItem => chuyenbay.GiaTien)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => chuyenbay.NgayGio)
+                @Html.DisplayFor(modelItem => chuyenbay.NgayBay)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => chuyenbay.ThoiGianBay)
+                @Html.DisplayFor(modelItem => chuyenbay.GioBay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => chuyenbay.ThoiGianToiDuKien)
             </td>
         </tr>
     }

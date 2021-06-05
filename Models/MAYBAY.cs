@@ -22,6 +22,7 @@ namespace HeThongBanVeMayBay.Models
         }
     
         public int ID { get; set; }
+
         [Display(Name = "Số hiệu máy bay")]
         public string IDMayBay { get; set; }
 

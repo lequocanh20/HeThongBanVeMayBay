@@ -251,3 +251,7 @@ D:\Do an\LTW NC\HeThongBanVeMayBay (2)\HeThongBanVeMayBay\bin\PagedList.Mvc.dll
 D:\Do an\LTW NC\HeThongBanVeMayBay (2)\HeThongBanVeMayBay\bin\PagedList.xml
 D:\Do an\LTW NC\HeThongBanVeMayBay (2)\HeThongBanVeMayBay\bin\PagedList.Mvc.xml
 D:\Do an\LTW NC\HeThongBanVeMayBay (2)\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csprojAssemblyReference.cache
+D:\Do an\LTW NC\HeThongBanVeMayBay\bin\PagedList.dll
+D:\Do an\LTW NC\HeThongBanVeMayBay\bin\PagedList.Mvc.dll
+D:\Do an\LTW NC\HeThongBanVeMayBay\bin\PagedList.xml
+D:\Do an\LTW NC\HeThongBanVeMayBay\bin\PagedList.Mvc.xml

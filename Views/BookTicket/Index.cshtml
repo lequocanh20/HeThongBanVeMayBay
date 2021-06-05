@@ -30,6 +30,11 @@
 </head>
 
 <body>
+    @using (Html.BeginForm("SearchDatCho", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    { 
+        <input name="madatcho" type="text"/>
+        <input type="submit" value="Tìm kiếm"/>
+    }
     @using (Html.BeginForm("Search", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div id="booking" class="section">

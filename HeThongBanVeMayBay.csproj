@@ -176,6 +176,7 @@
     <Compile Include="Models\HANHKHACH.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MADATCHO.cs" />
     <Compile Include="Models\MAYBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
@@ -198,6 +199,7 @@
     </Compile>
     <Compile Include="MyRoleProvider\SiteRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ultilities\SessionManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsHome\css\style.css" />
@@ -2132,6 +2134,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\RefreshPage.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2196,6 +2199,7 @@
     <Content Include="Views\Customer\OrderOneWay.cshtml" />
     <Content Include="Views\BookTicket\OrderTwoWay.cshtml" />
     <Content Include="Views\Customer\OrderTwoWay.cshtml" />
+    <Content Include="Views\BookTicket\SearchDatCho.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

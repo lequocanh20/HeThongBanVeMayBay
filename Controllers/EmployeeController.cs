@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HeThongBanVeMayBay.Models;
+using HeThongBanVeMayBay.Ultilities;
 using PagedList;
 using PagedList.Mvc;
 
@@ -77,6 +78,7 @@ namespace HeThongBanVeMayBay.Controllers
         }
 
         [Authorize(Roles = "true")]
+        [SessionTimeout]
         public ActionResult Index(int? page)
         {
             int pageSize = 3;

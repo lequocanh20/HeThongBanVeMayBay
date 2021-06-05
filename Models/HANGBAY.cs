@@ -26,7 +26,6 @@ namespace HeThongBanVeMayBay.Models
         }
     
         public int ID { get; set; }
-
         [Display(Name = "Mã hãng hàng không")]
         public string IDHangBay { get; set; }
 

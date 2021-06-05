@@ -20,8 +20,9 @@
           <ScalarProperty Name="IDSanBayDi" ColumnName="IDSanBayDi" />
           <ScalarProperty Name="IDSanBayDen" ColumnName="IDSanBayDen" />
           <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
-          <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
-          <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
+          <ScalarProperty Name="NgayBay" ColumnName="NgayBay" />
+          <ScalarProperty Name="GioBay" ColumnName="GioBay" />
+          <ScalarProperty Name="ThoiGianToiDuKien" ColumnName="ThoiGianToiDuKien" />
           <ScalarProperty Name="SoGheHang1" ColumnName="SoGheHang1" />
           <ScalarProperty Name="SoGheHang2" ColumnName="SoGheHang2" />
         </MappingFragment>

@@ -29,7 +29,6 @@ namespace HeThongBanVeMayBay.Models
 
         [Display(Name = "Tên chức vụ")]
         public string TenChucVu { get; set; }
-
         public string IsAdmin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -42,10 +42,13 @@ namespace HeThongBanVeMayBay.Models
 
         [Display(Name = "Ngày bay")]
         [DataType(DataType.Date)]
-        public System.DateTime NgayGio { get; set; } = DateTime.Now;
+        public System.DateTime NgayBay { get; set; } = DateTime.Now;
 
-        [Display(Name = "Thời gian bay")]
-        public System.TimeSpan ThoiGianBay { get; set; }
+        [Display(Name = "Giờ bay")]
+        public System.TimeSpan GioBay { get; set; }
+
+        [Display(Name = "Thời gian tới dự kiến")]
+        public System.TimeSpan ThoiGianToiDuKien { get; set; }
 
         [Display(Name = "Số ghế hạng 1")]
         public int SoGheHang1 { get; set; }

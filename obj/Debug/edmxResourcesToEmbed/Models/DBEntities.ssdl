@@ -19,8 +19,9 @@
     <Property Name="IDSanBayDi" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="IDSanBayDen" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="GiaTien" Type="int" Nullable="false" />
-    <Property Name="NgayGio" Type="datetime" Nullable="false" />
-    <Property Name="ThoiGianBay" Type="time" Precision="7" Nullable="false" />
+    <Property Name="NgayBay" Type="datetime" Nullable="false" />
+    <Property Name="GioBay" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ThoiGianToiDuKien" Type="time" Precision="7" Nullable="false" />
     <Property Name="SoGheHang1" Type="int" Nullable="false" />
     <Property Name="SoGheHang2" Type="int" Nullable="false" />
   </EntityType>
@@ -61,10 +62,10 @@
   </EntityType>
   <EntityType Name="NHANVIEN">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserName" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="varchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Pass" Type="varchar(max)" Nullable="false" />
     <Property Name="Email" Type="varchar(max)" Nullable="false" />
     <Property Name="TenNV" Type="nvarchar" MaxLength="30" Nullable="false" />

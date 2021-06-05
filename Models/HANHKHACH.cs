@@ -36,7 +36,6 @@ namespace HeThongBanVeMayBay.Models
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public System.DateTime NgaySinh { get; set; } = new DateTime(2000, 01, 01);
-
         public string GioiTinh { get; set; }
         public string DienThoai { get; set; }
         public string ChucVu { get; set; }

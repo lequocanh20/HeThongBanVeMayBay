@@ -24,8 +24,9 @@
           <Property Name="IDSanBayDi" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="IDSanBayDen" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="GiaTien" Type="int" Nullable="false" />
-          <Property Name="NgayGio" Type="datetime" Nullable="false" />
-          <Property Name="ThoiGianBay" Type="time" Precision="7" Nullable="false" />
+          <Property Name="NgayBay" Type="datetime" Nullable="false" />
+          <Property Name="GioBay" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ThoiGianToiDuKien" Type="time" Precision="7" Nullable="false" />
           <Property Name="SoGheHang1" Type="int" Nullable="false" />
           <Property Name="SoGheHang2" Type="int" Nullable="false" />
         </EntityType>
@@ -66,10 +67,10 @@
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserName" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar(max)" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Pass" Type="varchar(max)" Nullable="false" />
           <Property Name="Email" Type="varchar(max)" Nullable="false" />
           <Property Name="TenNV" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -350,8 +351,9 @@
           <Property Name="IDSanBayDi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IDSanBayDen" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GiaTien" Type="Int32" Nullable="false" />
-          <Property Name="NgayGio" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ThoiGianBay" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="NgayBay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GioBay" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ThoiGianToiDuKien" Type="Time" Nullable="false" Precision="7" />
           <Property Name="SoGheHang1" Type="Int32" Nullable="false" />
           <Property Name="SoGheHang2" Type="Int32" Nullable="false" />
           <NavigationProperty Name="HANGBAY1" Relationship="Self.FK__CHUYENBAY__HangB__300424B4" FromRole="CHUYENBAY" ToRole="HANGBAY" />
@@ -405,10 +407,10 @@
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserName" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenNV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
@@ -697,8 +699,9 @@
                 <ScalarProperty Name="IDSanBayDi" ColumnName="IDSanBayDi" />
                 <ScalarProperty Name="IDSanBayDen" ColumnName="IDSanBayDen" />
                 <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
-                <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
-                <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
+                <ScalarProperty Name="NgayBay" ColumnName="NgayBay" />
+                <ScalarProperty Name="GioBay" ColumnName="GioBay" />
+                <ScalarProperty Name="ThoiGianToiDuKien" ColumnName="ThoiGianToiDuKien" />
                 <ScalarProperty Name="SoGheHang1" ColumnName="SoGheHang1" />
                 <ScalarProperty Name="SoGheHang2" ColumnName="SoGheHang2" />
               </MappingFragment>

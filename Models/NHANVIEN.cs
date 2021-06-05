@@ -21,7 +21,6 @@ namespace HeThongBanVeMayBay.Models
         {
             ImageEmp = "~/Content/images/add.jpg";
         }
-
         public int ID { get; set; }
 
         [Display(Name = "Tài khoản: ")]
@@ -39,6 +38,7 @@ namespace HeThongBanVeMayBay.Models
 
         [Display(Name = "Giới tính: ")]
         public string GioiTinh { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Ngày sinh: ")]
