@@ -2190,7 +2190,6 @@
     <Content Include="Views\HomePage\Service.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Office\Create.cshtml" />
-    <Content Include="Views\BookTicket\Index.cshtml" />
     <Content Include="Views\BookTicket\Search.cshtml" />
     <Content Include="Views\BookTicket\RenderOneWay.cshtml" />
     <Content Include="Views\BookTicket\RenderTwoWay.cshtml" />
@@ -2200,6 +2199,8 @@
     <Content Include="Views\BookTicket\OrderTwoWay.cshtml" />
     <Content Include="Views\Customer\OrderTwoWay.cshtml" />
     <Content Include="Views\BookTicket\SearchDatCho.cshtml" />
+    <Content Include="Views\BookTicket\Index.cshtml" />
+    <Content Include="Views\Customer\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

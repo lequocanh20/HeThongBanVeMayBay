@@ -66,10 +66,10 @@ namespace HeThongBanVeMayBay.Controllers
 
         public ActionResult SearchDatCho(string madatcho, MADATCHO mdc)
         {
-            var rtn = from p in database.PHIEUDATCHOes
-                      join c in database.CHUYENBAYs on p.IDChuyenBay equals c.ID
-                      where p.IDDatCho == madatcho
-                      select new { IDSanBayDi = c.SANBAY.TenSB, IDSanBayDen = c.SANBAY1.TenSB, HangBay = c.HANGBAY1.TenHangbay, NgayBay = c.NgayBay, GioBay = c.GioBay, GiaTien = p.GiaTien };
+            var rtn = from v in database.VECHUYENBAYs
+                      join c in database.CHUYENBAYs on v.IDChuyenBay equals c.ID
+                      where v.IDVeChuyenBay == madatcho
+                      select new { IDSanBayDi = c.SANBAY.TenSB, IDSanBayDen = c.SANBAY1.TenSB, HangBay = c.HANGBAY1.TenHangbay, NgayBay = c.NgayBay, GioBay = c.GioBay, GiaTien = v.GiaTien };
             mdc.IDSanBayDi = rtn.Select(a => a.IDSanBayDi).FirstOrDefault();
             mdc.IDSanBayDen = rtn.Select(a => a.IDSanBayDen).FirstOrDefault();
             mdc.HangBay = rtn.Select(a => a.HangBay).FirstOrDefault();
