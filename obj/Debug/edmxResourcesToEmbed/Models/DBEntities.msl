@@ -51,7 +51,6 @@
           <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
           <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
           <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
-          <ScalarProperty Name="ViDienTu" ColumnName="ViDienTu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -63,6 +62,7 @@
           <ScalarProperty Name="SoDangBa" ColumnName="SoDangBa" />
           <ScalarProperty Name="LoaiMayBay" ColumnName="LoaiMayBay" />
           <ScalarProperty Name="HangBay" ColumnName="HangBay" />
+          <ScalarProperty Name="SucChuaToiDa" ColumnName="SucChuaToiDa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

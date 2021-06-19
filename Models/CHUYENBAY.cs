@@ -23,16 +23,20 @@ namespace HeThongBanVeMayBay.Models
         }
     
         public int ID { get; set; }
+
         [Display(Name = "Mã chuyến bay")]
         public string IDChuyenBay { get; set; }
 
         [Display(Name = "Hãng bay")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string HangBay { get; set; }
 
         [Display(Name = "Sân bay đi")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string IDSanBayDi { get; set; }
 
         [Display(Name = "Sân bay đến")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string IDSanBayDen { get; set; }
 
         [Display(Name = "Giá tiền")]
@@ -51,9 +55,11 @@ namespace HeThongBanVeMayBay.Models
         public System.TimeSpan ThoiGianToiDuKien { get; set; }
 
         [Display(Name = "Số ghế hạng 1")]
+        [Required(ErrorMessage = "Vui lòng nhập số")]
         public int SoGheHang1 { get; set; }
 
         [Display(Name = "Số ghế hạng 2")]
+        [Required(ErrorMessage = "Vui lòng nhập số")]
         public int SoGheHang2 { get; set; }
 
         public virtual HANGBAY HANGBAY1 { get; set; }

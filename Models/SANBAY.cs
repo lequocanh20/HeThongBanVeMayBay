@@ -11,7 +11,8 @@ namespace HeThongBanVeMayBay.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SANBAY
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,13 @@ namespace HeThongBanVeMayBay.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Mã sân bay")]
+        [DataType(DataType.Text)]
         public string IATA { get; set; }
+
+        [Display(Name = "Tên sân bay")]
+        [DataType(DataType.Text)]
         public string TenSB { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

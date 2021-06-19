@@ -68,9 +68,20 @@
             <td>
                 @Html.DisplayFor(modelItem => chuyenbay.SoGheHang1)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => chuyenbay.SoGheHang2)
-            </td>
+            @if (chuyenbay.SoGheHang2 < 1)
+            {
+                <td>
+                    <span style="color: red;">
+                        Hết vé
+                    </span>
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => chuyenbay.SoGheHang2)
+                </td>
+            }
             <td>
                 <input type="radio" name="khuhoi" value="@chuyenbay.ID" />
             </td>

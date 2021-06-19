@@ -28,7 +28,9 @@ namespace HeThongBanVeMayBay.Models
         public string IDChucVu { get; set; }
 
         [Display(Name = "Tên chức vụ")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string TenChucVu { get; set; }
+
         public string IsAdmin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

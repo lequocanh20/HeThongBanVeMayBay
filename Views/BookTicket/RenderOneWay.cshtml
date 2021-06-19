@@ -68,9 +68,20 @@
             <td>
                 @Html.DisplayFor(modelItem => chuyenbay.SoGheHang1)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => chuyenbay.SoGheHang2)
-            </td>
+            @if (chuyenbay.SoGheHang2 < 1)
+            {
+                <td>
+                    <span style="color: red;">
+                        Hết vé
+                    </span>
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => chuyenbay.SoGheHang2)
+                </td>
+            }
             <td>
                 @*<a href="/BookTicket/OrderOneWay/@chuyenbay.ID" class="btn btn-default">Chọn</a>*@
                 <input type="radio" name="motchieu" value="@chuyenbay.ID" />

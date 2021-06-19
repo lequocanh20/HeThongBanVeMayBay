@@ -2201,6 +2201,8 @@
     <Content Include="Views\BookTicket\SearchDatCho.cshtml" />
     <Content Include="Views\BookTicket\Index.cshtml" />
     <Content Include="Views\Customer\Payment.cshtml" />
+    <Content Include="Views\Authentication\LoginHK.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

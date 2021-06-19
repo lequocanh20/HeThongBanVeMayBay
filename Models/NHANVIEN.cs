@@ -30,10 +30,11 @@ namespace HeThongBanVeMayBay.Models
         public string Pass { get; set; }
 
         [Display(Name = "Emai: ")]
-        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Vui lòng nhập đúng định dạng Email")]
         public string Email { get; set; }
 
         [Display(Name = "Tên NV: ")]
+        [DataType(DataType.Text)]
         public string TenNV { get; set; }
 
         [Display(Name = "Giới tính: ")]

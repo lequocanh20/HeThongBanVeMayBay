@@ -1,4 +1,4 @@
-﻿@model HeThongBanVeMayBay.Models.NHANVIEN
+﻿@model HeThongBanVeMayBay.Models.HANHKHACH
 @{
     Layout = null;
 }
@@ -44,7 +44,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    @using (Html.BeginForm("DoLogin", "Authentication", new { ReturnUrl = this.Request.Params["ReturnUrl"] }, FormMethod.Post))
+                                    @using (Html.BeginForm("LoginHK", "Authentication", new { ReturnUrl = this.Request.Params["ReturnUrl"] }, FormMethod.Post))
                                     {
                                         <form class="user">
                                             @Html.ValidationMessage("CredentialError", new { style = "color:red;" })

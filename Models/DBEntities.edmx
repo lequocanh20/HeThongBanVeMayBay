@@ -53,7 +53,6 @@
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="DienThoai" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="ChucVu" Type="nchar" MaxLength="10" />
-          <Property Name="ViDienTu" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="MAYBAY">
           <Key>
@@ -64,6 +63,7 @@
           <Property Name="SoDangBa" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="LoaiMayBay" Type="varchar(max)" Nullable="false" />
           <Property Name="HangBay" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SucChuaToiDa" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -388,7 +388,6 @@
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ChucVu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ViDienTu" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="CHUCVU1" Relationship="Self.FK__HANHKHACH__ChucV__32E0915F" FromRole="HANHKHACH" ToRole="CHUCVU" />
           <NavigationProperty Name="PHIEUDATCHOes" Relationship="Self.FK__PHIEUDATCH__CMND__3A81B327" FromRole="HANHKHACH" ToRole="PHIEUDATCHO" />
           <NavigationProperty Name="VECHUYENBAYs" Relationship="Self.FK__VECHUYENBA__CMND__36B12243" FromRole="HANHKHACH" ToRole="VECHUYENBAY" />
@@ -402,6 +401,7 @@
           <Property Name="SoDangBa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LoaiMayBay" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HangBay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SucChuaToiDa" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__IDChu__2F10007B" FromRole="MAYBAY" ToRole="CHUYENBAY" />
           <NavigationProperty Name="HANGBAY1" Relationship="Self.FK__MAYBAY__HangBay__2A4B4B5E" FromRole="MAYBAY" ToRole="HANGBAY" />
         </EntityType>
@@ -730,7 +730,6 @@
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
                 <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
-                <ScalarProperty Name="ViDienTu" ColumnName="ViDienTu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -742,6 +741,7 @@
                 <ScalarProperty Name="SoDangBa" ColumnName="SoDangBa" />
                 <ScalarProperty Name="LoaiMayBay" ColumnName="LoaiMayBay" />
                 <ScalarProperty Name="HangBay" ColumnName="HangBay" />
+                <ScalarProperty Name="SucChuaToiDa" ColumnName="SucChuaToiDa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

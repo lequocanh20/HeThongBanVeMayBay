@@ -14,9 +14,25 @@ namespace HeThongBanVeMayBay.Controllers
     {
         // GET: Customer
         QLBANVEMAYBAYEntities database = new QLBANVEMAYBAYEntities();
-        public ActionResult Index()
+        public ActionResult Index(HANHKHACH Kh)
         {
-            HANHKHACH Kh = new HANHKHACH();
+            if (Convert.ToBoolean(Session["taikhoandadangnhap"]) == false && Convert.ToString(Session["IsCustomer"]) != "")
+            {
+                foreach (var item in database.HANHKHACHes.Where(s => s.UserName == User.Identity.Name))
+                {
+                    Kh.TenHanhKhach = item.TenHanhKhach;
+                    Kh.CMND = item.CMND;
+                    Kh.DienThoai = item.DienThoai;
+                    Kh.Email = item.Email;
+                    Kh.GioiTinh = item.GioiTinh;
+                    Kh.NgaySinh = item.NgaySinh;
+                }
+            }  
+            else
+            {
+                Kh = new HANHKHACH();
+            }    
+            
             return View(Kh);
         }
 
@@ -27,9 +43,10 @@ namespace HeThongBanVeMayBay.Controllers
             Session.Remove("CMND");
             using (MailMessage mail = new MailMessage())
             {
-                mail.To.Add(Convert.ToString(Session["email"]));
+                
+                mail.To.Add(Convert.ToString(Session["email"]));                                       
                 Session.Remove("email");
-                mail.From = new MailAddress("lequocanh.huflit@gmail.com");
+                mail.From = new MailAddress("lequocanh.qa@gmail.com");
                 mail.Subject = "Đại lý vé máy bay Anh-Tường";
                 mail.Body = "Cảm ơn bạn đã chọn đại lý của chúng tôi. Mã đặt chỗ của bạn là : " + madatcho;
                 mail.IsBodyHtml = true;
@@ -37,12 +54,11 @@ namespace HeThongBanVeMayBay.Controllers
                 {
                     smtp.UseDefaultCredentials = false;
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    smtp.Credentials = new NetworkCredential("lequocanh.huflit@gmail.com", "sincd2000");
-                    smtp.EnableSsl = true;                
+                    smtp.Credentials = new NetworkCredential("lequocanh.qa@gmail.com", "sincd2000");
+                    smtp.EnableSsl = true;
                     smtp.Send(mail);
-                }                        
-            }                    
-            Content("Đặt vé thành công");
+                }
+            }
             return RedirectToAction("Index", "BookTicket");
         }
 
@@ -104,34 +120,43 @@ namespace HeThongBanVeMayBay.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCus(HANHKHACH Kh)
+        public ActionResult AddCus(HANHKHACH Kh, FormCollection collection)
         {
-            
+
             //Console.WriteLine("Start: " + start);
             //for (int cnt = 0; cnt < 10; cnt++)
             //    generator.Next();
-            //string[] random = generator.GetStore();
+            //string[] random = generator.GetStore()
+            var remember = collection["Remember"];
+            Session["remember"] = remember;
+            if(remember != null)
+            {
+                Session["email"] = Kh.Email;
+            }    
             int dem = 0;
             for (int i = 0; i < Convert.ToInt32(Session["Adult"]); i++)
-            {
-                database.HANHKHACHes.Add(Kh);
-                var get_database = from u in database.HANHKHACHes where u.CMND == Kh.CMND select new { u.CMND };
-                string check_cmnd = get_database.Select(a => a.CMND).FirstOrDefault();
+            {             
+                var get_cmnd_from_database = from u 
+                                             in database.HANHKHACHes 
+                                             where u.CMND == Kh.CMND 
+                                             select new { u.CMND };
+                string check_cmnd = get_cmnd_from_database.Select(a => a.CMND).FirstOrDefault();
                 if (check_cmnd != null)
                 {
-                    Session["CMND"] = Kh.CMND;
+                    database.SaveChanges();
                 }    
                 else
                 {
+                    database.HANHKHACHes.Add(Kh);
                     database.SaveChanges();
                 }                   
-                Session["email"] = Kh.Email;
                 int cd = Convert.ToInt32(Session["IDChieuDi"]);
                 var context = new QLBANVEMAYBAYEntities();
                 //string IdCd = database.CHUYENBAYs.Where(s => s.ID == cd).FirstOrDefault().IDChuyenBay;
                 double GiaTienCd = database.CHUYENBAYs.Where(s => s.ID == cd).FirstOrDefault().GiaTien;
                 if (dem == 0 && Convert.ToInt32(Session["Adult"]) == 1)
                 {
+                    Session["email"] = Kh.Email;
                     RandomGenerator generatorcd = new RandomGenerator();
                     string randomcd = generatorcd.Generate();
                     context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'false')");
@@ -173,9 +198,13 @@ namespace HeThongBanVeMayBay.Controllers
                             //string IdCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().IDChuyenBay;
                             double GiaTienCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().GiaTien;
                             context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'false')");
-                            context.SaveChanges();
+                            context.SaveChanges();                            
                         }
-                    }
+                        if (Convert.ToString(Session["IsCustomer"]) != "")
+                        {
+                            Session["taikhoandadangnhap"] = true;
+                        } 
+                    }   
                     else
                     {
                         string cmnd_xacnhan = Convert.ToString(Session["CMND"]);
@@ -200,6 +229,10 @@ namespace HeThongBanVeMayBay.Controllers
                         ModelState.Clear();                        
                         return RedirectToAction("Index");
                     }
+                    if(Convert.ToString(Session["remember"]) == "")
+                    {
+                        Session["email"] = Kh.Email;
+                    }    
                     Session.Remove("IDChieuDi");
                     Session.Remove("IDChieuVe");
                     break;                   
@@ -220,11 +253,13 @@ namespace HeThongBanVeMayBay.Controllers
                 var context = new QLBANVEMAYBAYEntities();
                 string cmnd = Convert.ToString(Session["CMND"]);
                 string madatcho = database.PHIEUDATCHOes.Where(s => s.CMND == cmnd).OrderBy(x => x.TrangThai).FirstOrDefault().IDDatCho;
+                int soluongve = Convert.ToInt32(Session["Adult"]);
                 context.Database.ExecuteSqlCommand("UPDATE PHIEUDATCHO SET TrangThai = 'true' WHERE IDDatCho = '" + madatcho + "'");
                 context.Database.ExecuteSqlCommand("INSERT INTO VECHUYENBAY(IDVeChuyenBay, IDChuyenBay, CMND, GiaTien, LoaiVe) SELECT IDDatCho, IDChuyenBay, CMND, GiaTien, LoaiVe FROM PHIEUDATCHO WHERE TrangThai = 'true'");
                 if (madatcho == database.VECHUYENBAYs.Where(s => s.IDVeChuyenBay == madatcho).FirstOrDefault().IDVeChuyenBay)
                 {
                     context.Database.ExecuteSqlCommand("DELETE FROM PHIEUDATCHO WHERE IDDatCho = '"+ madatcho +"'");
+                    context.Database.ExecuteSqlCommand("UPDATE CHUYENBAY SET SoGheHang2 = SoGheHang2 - " + soluongve + " WHERE ID = "+ database.VECHUYENBAYs.Where(s => s.IDVeChuyenBay == madatcho).FirstOrDefault().IDChuyenBay + "");
                 }
                 return RedirectToAction("SendMail");
             }    
@@ -232,6 +267,28 @@ namespace HeThongBanVeMayBay.Controllers
             {
                 return Content("Thanh toán bị lỗi");
             }    
+        }
+
+        public ActionResult Register()
+        {
+            HANHKHACH kh = new HANHKHACH();
+            return View(kh);
+        }
+
+        [HttpPost]
+        public ActionResult Register(HANHKHACH kh)
+        {
+            try
+            {
+                kh.ChucVu = "KH";
+                database.HANHKHACHes.Add(kh);
+                database.SaveChanges();
+                return RedirectToAction("LoginHK", "Authentication");
+            }
+            catch
+            {
+                return View("Register");
+            }
         }
     }
 }

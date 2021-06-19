@@ -11,7 +11,7 @@
 <head>
     <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 </head>
-<body onload="JavaScript:timedRefresh(60000);">
+<body @*onload="JavaScript:timedRefresh(60000);"*@>
     <div>
         @{ Html.RenderAction("GetAddNewLink");}
         <a href="/Authentication/Logout">Logout</a>

@@ -78,7 +78,7 @@ namespace HeThongBanVeMayBay.Controllers
         }
 
         [Authorize(Roles = "true")]
-        [SessionTimeout]
+        //[SessionTimeout]
         public ActionResult Index(int? page)
         {
             int pageSize = 3;

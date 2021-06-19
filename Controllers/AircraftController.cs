@@ -78,7 +78,7 @@ namespace HeThongBanVeMayBay.Controllers
             }
             catch
             {
-                return Content("Error Create New");
+                return View("Create");
             }
         }
 

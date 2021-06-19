@@ -36,15 +36,14 @@ namespace HeThongBanVeMayBay.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("CredentialError", "Ivalid UserName or Password");
+                    ModelState.AddModelError("CredentialError", "Tài khoản hoặc mật khẩu không đúng");
                     return View("Login");
                 }
                 FormsAuthentication.SetAuthCookie(nv.UserName, false);
                 Session["IsAdmin"] = IsAdmin;
                 if (IsAdmin == true)
                 {
-                    
-                    if(returnurl == null)
+                    if (returnurl == null)
                     {
                         returnurl = "/Employee/Index";
                     }
@@ -65,12 +64,49 @@ namespace HeThongBanVeMayBay.Controllers
                 return View("Login");
             }
         }
+
+        public ActionResult LoginHK()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LoginHK(HANHKHACH kh, string returnurl)
+        {
+            if(ModelState.IsValid)
+            {
+                UserStatus status = GetUserValidity1(kh);
+                if(status == UserStatus.NonAuthenticatedUser)
+                {
+                    FormsAuthentication.SetAuthCookie(kh.UserName, false);
+                    Session["IsCustomer"] = kh.UserName;
+                    if (returnurl == null)
+                    {
+                        returnurl = "/BookTicket/Index";
+                        return Redirect(returnurl);
+                    }    
+                    else
+                    {
+                        return Redirect(returnurl);
+                    }    
+                }
+                else
+                {
+                    ModelState.AddModelError("CredentialError", "Tài khoản hoặc mật khẩu không đúng");
+                    return View("LoginHK");
+                }               
+            }    
+            else
+            {
+                return View("LoginHK");
+            }    
+        }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
         }
-    public UserStatus GetUserValidity(NHANVIEN nv)
+        public UserStatus GetUserValidity(NHANVIEN nv)
         {
             var status = UserStatus.NonAuthenticatedUser;
             foreach (var item in database.NHANVIENs.Where(x => x.UserName == nv.UserName && x.Pass == nv.Pass))
@@ -88,5 +124,23 @@ namespace HeThongBanVeMayBay.Controllers
             }
             return status;
         }
+        public UserStatus GetUserValidity1(HANHKHACH kh)
+        {
+            var status = UserStatus.NonAuthenticatedUser;
+            string check_user = null;
+            var get_user_from_database = from u in database.HANHKHACHes 
+                                         where u.UserName == kh.UserName && u.Pass == kh.Pass
+                                         select new { u.UserName };
+            check_user = get_user_from_database.Select(a => a.UserName).FirstOrDefault();
+            if (check_user == null)
+            {
+                status = UserStatus.Unknow;
+                return status;
+            }
+            else
+            {
+                return status;
+            }    
+        }    
     }
 }
