@@ -21,13 +21,14 @@ namespace HeThongBanVeMayBay.Models
             this.HANHKHACHes = new HashSet<HANHKHACH>();
             this.NHANVIENs = new HashSet<NHANVIEN>();
         }
-
+    
         public int ID { get; set; }
 
         [Display(Name = "Mã chức vụ")]
         public string IDChucVu { get; set; }
 
         [Display(Name = "Tên chức vụ")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string TenChucVu { get; set; }
 
         public string IsAdmin { get; set; }

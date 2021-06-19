@@ -27,8 +27,9 @@ namespace HeThongBanVeMayBay.Controllers
                         IDSanBayDen = item.SANBAY1.TenSB,
                         IDSanBayDi = item.SANBAY.TenSB,
                         GiaTien = item.GiaTien,
-                        NgayGio = item.NgayGio.Date,
-                        ThoiGianBay = item.ThoiGianBay,
+                        NgayBay = item.NgayBay.Date,
+                        GioBay = item.GioBay,
+                        ThoiGianToiDuKien = item.ThoiGianToiDuKien,
                         SoGheHang1 = item.SoGheHang1,
                         SoGheHang2 = item.SoGheHang2
                     });
@@ -64,7 +65,7 @@ namespace HeThongBanVeMayBay.Controllers
                     {
                         IDHangBay = item.IDHangBay,
                         TenHangbay = item.TenHangbay,
-                        ImageEmp = item.ImageEmp
+                        ImageAviation = item.ImageAviation
                     });
                 }
             }
@@ -142,8 +143,18 @@ namespace HeThongBanVeMayBay.Controllers
                 ViewBag.listMayBay = new SelectList(list2, "IDMayBay", "IDMaybay", 1);
                 ViewBag.listHangBay = new SelectList(list1, "IDHangBay", "TenHangBay", 1);
                 ViewBag.listSanBay = new SelectList(list, "IATA", "TenSB", 1);
-                database.CHUYENBAYs.Add(cb);
-                database.SaveChanges();
+                if(cb.SoGheHang1 > database.MAYBAYs.Where(s => s.IDMayBay == cb.IDChuyenBay).FirstOrDefault().SucChuaToiDa || 
+                    cb.SoGheHang1 > database.MAYBAYs.Where(s => s.IDMayBay == cb.IDChuyenBay).FirstOrDefault().SucChuaToiDa ||
+                    (cb.SoGheHang1 + cb.SoGheHang2) > database.MAYBAYs.Where(s => s.IDMayBay == cb.IDChuyenBay).FirstOrDefault().SucChuaToiDa)
+                {
+                    ModelState.AddModelError("CredentialError", "Vui lòng kiểm tra lại số ghế hạng 1 và hạng 2, số ghế hạng 1 và hạng 2 không được lớn hơn sức chứa tối đa của máy bay");
+                    return View("Create");
+                } 
+                else
+                {
+                    database.CHUYENBAYs.Add(cb);
+                    database.SaveChanges();
+                }                   
                 return RedirectToAction("Index");
             }
             catch
@@ -167,7 +178,7 @@ namespace HeThongBanVeMayBay.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int Id, CHUYENBAY chuyenbay)
+        public ActionResult Edit(int Id, CHUYENBAY cb)
         {
             List<MAYBAY> list2 = SelectAllArticle3().ToList();
             List<HANGBAY> list1 = SelectAllArticle2().ToList();
@@ -175,24 +186,30 @@ namespace HeThongBanVeMayBay.Controllers
             ViewBag.listMayBay = new SelectList(list2, "IDMayBay", "IDMayBay", 1);
             ViewBag.listHangBay = new SelectList(list1, "IDHangBay", "TenHangBay", 1);
             ViewBag.listSanBay = new SelectList(list, "IATA", "TenSB", 1);
-            database.Entry(chuyenbay).State = System.Data.Entity.EntityState.Modified;
+            database.Entry(cb).State = System.Data.Entity.EntityState.Modified;
+            if (cb.SoGheHang1 > database.MAYBAYs.Where(s => s.IDMayBay == cb.IDChuyenBay).FirstOrDefault().SucChuaToiDa ||
+                    cb.SoGheHang1 > database.MAYBAYs.Where(s => s.IDMayBay == cb.IDChuyenBay).FirstOrDefault().SucChuaToiDa ||
+                    (cb.SoGheHang1 + cb.SoGheHang2) > database.MAYBAYs.Where(s => s.IDMayBay == cb.IDChuyenBay).FirstOrDefault().SucChuaToiDa)
+            {
+                ModelState.AddModelError("CredentialError", "Vui lòng kiểm tra lại số ghế hạng 1 và hạng 2, số ghế hạng 1 và hạng 2 không được lớn hơn sức chứa tối đa của máy bay");
+                return View("Edit");
+            }
             database.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "AD")]
         public ActionResult Delete(int Id)
         {
             return View(database.CHUYENBAYs.Where(s => s.ID == Id).FirstOrDefault());
         }
 
         [HttpPost]
-        public ActionResult Delete(int Id, CHUYENBAY chuyenbay)
+        public ActionResult Delete(int Id, CHUYENBAY cb)
         {
             try
             {
-                chuyenbay = database.CHUYENBAYs.Where(s => s.ID == Id).FirstOrDefault();
-                database.CHUYENBAYs.Remove(chuyenbay);
+                cb = database.CHUYENBAYs.Where(s => s.ID == Id).FirstOrDefault();
+                database.CHUYENBAYs.Remove(cb);
                 database.SaveChanges();
                 return RedirectToAction("Index");
             }

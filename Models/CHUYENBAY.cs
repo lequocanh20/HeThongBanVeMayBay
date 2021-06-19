@@ -21,19 +21,22 @@ namespace HeThongBanVeMayBay.Models
             this.PHIEUDATCHOes = new HashSet<PHIEUDATCHO>();
             this.VECHUYENBAYs = new HashSet<VECHUYENBAY>();
         }
-
+    
         public int ID { get; set; }
 
         [Display(Name = "Mã chuyến bay")]
         public string IDChuyenBay { get; set; }
 
         [Display(Name = "Hãng bay")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string HangBay { get; set; }
 
         [Display(Name = "Sân bay đi")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string IDSanBayDi { get; set; }
 
         [Display(Name = "Sân bay đến")]
+        [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string IDSanBayDen { get; set; }
 
         [Display(Name = "Giá tiền")]
@@ -43,15 +46,20 @@ namespace HeThongBanVeMayBay.Models
 
         [Display(Name = "Ngày bay")]
         [DataType(DataType.Date)]
-        public System.DateTime NgayGio { get; set; } = DateTime.Now;
+        public System.DateTime NgayBay { get; set; } = DateTime.Now;
 
-        [Display(Name = "Thời gian bay")]
-        public System.TimeSpan ThoiGianBay { get; set; }
+        [Display(Name = "Giờ bay")]
+        public System.TimeSpan GioBay { get; set; }
+
+        [Display(Name = "Thời gian tới dự kiến")]
+        public System.TimeSpan ThoiGianToiDuKien { get; set; }
 
         [Display(Name = "Số ghế hạng 1")]
+        [Required(ErrorMessage = "Vui lòng nhập số")]
         public int SoGheHang1 { get; set; }
 
         [Display(Name = "Số ghế hạng 2")]
+        [Required(ErrorMessage = "Vui lòng nhập số")]
         public int SoGheHang2 { get; set; }
 
         public virtual HANGBAY HANGBAY1 { get; set; }

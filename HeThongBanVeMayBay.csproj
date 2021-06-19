@@ -140,6 +140,7 @@
     <Compile Include="Controllers\AviationController.cs" />
     <Compile Include="Controllers\BookTicketController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Models\HANHKHACH.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MADATCHO.cs" />
     <Compile Include="Models\MAYBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
@@ -187,6 +189,7 @@
     <Compile Include="Models\PHONGBAN.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RandomGenerator.cs" />
     <Compile Include="Models\SANBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
@@ -196,6 +199,7 @@
     </Compile>
     <Compile Include="MyRoleProvider\SiteRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ultilities\SessionManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsHome\css\style.css" />
@@ -2130,6 +2134,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\RefreshPage.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2185,13 +2190,23 @@
     <Content Include="Views\HomePage\Service.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Office\Create.cshtml" />
-    <Content Include="Views\BookTicket\Index.cshtml" />
     <Content Include="Views\BookTicket\Search.cshtml" />
     <Content Include="Views\BookTicket\RenderOneWay.cshtml" />
     <Content Include="Views\BookTicket\RenderTwoWay.cshtml" />
+    <Content Include="Views\BookTicket\OrderOneWay.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\OrderOneWay.cshtml" />
+    <Content Include="Views\BookTicket\OrderTwoWay.cshtml" />
+    <Content Include="Views\Customer\OrderTwoWay.cshtml" />
+    <Content Include="Views\BookTicket\SearchDatCho.cshtml" />
+    <Content Include="Views\BookTicket\Index.cshtml" />
+    <Content Include="Views\Customer\Payment.cshtml" />
+    <Content Include="Views\Authentication\LoginHK.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\SendMail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

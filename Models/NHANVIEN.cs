@@ -23,20 +23,23 @@ namespace HeThongBanVeMayBay.Models
         }
         public int ID { get; set; }
 
-        [Display(Name = "Mã NV: ")]
-        public string IDNhanVien { get; set; }
-
         [Display(Name = "Tài khoản: ")]
         public string UserName { get; set; }
 
         [Display(Name = "Mật khẩu: ")]
         public string Pass { get; set; }
 
+        [Display(Name = "Emai: ")]
+        [EmailAddress(ErrorMessage = "Vui lòng nhập đúng định dạng Email")]
+        public string Email { get; set; }
+
         [Display(Name = "Tên NV: ")]
+        [DataType(DataType.Text)]
         public string TenNV { get; set; }
 
         [Display(Name = "Giới tính: ")]
         public string GioiTinh { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Ngày sinh: ")]

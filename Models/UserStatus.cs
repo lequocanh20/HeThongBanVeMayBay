@@ -5,5 +5,6 @@
         AuthenticatedAdmin,
         AuthenticatedUser,
         NonAuthenticatedUser,
+        Unknow
     }
 }

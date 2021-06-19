@@ -23,7 +23,7 @@ namespace HeThongBanVeMayBay.Controllers
                     {
                         IDHangBay = item.IDHangBay,
                         TenHangbay = item.TenHangbay,
-                        ImageEmp = item.ImageEmp
+                        ImageAviation = item.ImageAviation
                     });
                 }
             }
@@ -78,7 +78,7 @@ namespace HeThongBanVeMayBay.Controllers
             }
             catch
             {
-                return Content("Error Create New");
+                return View("Create");
             }
         }
 

@@ -32,7 +32,7 @@ namespace HeThongBanVeMayBay.Controllers
                     string filename = Path.GetFileNameWithoutExtension(hb.UploadImage.FileName);
                     string extent = Path.GetExtension(hb.UploadImage.FileName);
                     filename = filename + extent;
-                    hb.ImageEmp = "~/Content/images/" + filename;
+                    hb.ImageAviation = "~/Content/images/" + filename;
                     hb.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), filename));
                 }
                 database.HANGBAYs.Add(hb);
@@ -61,7 +61,7 @@ namespace HeThongBanVeMayBay.Controllers
                     string filename = Path.GetFileNameWithoutExtension(hb.UploadImage.FileName);
                     string extent = Path.GetExtension(hb.UploadImage.FileName);
                     filename = filename + extent;
-                    hb.ImageEmp = "~/Content/images/" + filename;
+                    hb.ImageAviation = "~/Content/images/" + filename;
                     hb.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), filename));
                 }
                 database.SaveChanges();

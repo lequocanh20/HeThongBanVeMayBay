@@ -17,6 +17,12 @@
     <!-- Bootstrap -->
     <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.min.css" />
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="~/Content/style.css" />
 
@@ -30,6 +36,11 @@
 </head>
 
 <body>
+    @using (Html.BeginForm("SearchDatCho", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input name="madatcho" type="text" />
+        <input type="submit" value="Tìm kiếm" />
+    }
     @using (Html.BeginForm("Search", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div id="booking" class="section">
@@ -61,6 +72,7 @@
                                                     {
 
                                                         <option value="@item.IATA">@item.TenSB</option>
+
                                                     }
                                                 }
                                             </select>
@@ -85,22 +97,26 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <span class="form-label">Departing</span>
-                                            <input name="DepartDate" class="form-control" type="date" required id="txtDepartDate">
+                                            @{ DateTime dt = DateTime.Now;
+                                                string date = dt.ToString("yyyy-MM-dd");}
+                                            <input name="DepartDate" class="form-control" @*min="@date"*@ type="date" required id="txtDepartDate">
                                         </div>
                                     </div>
                                     <div class="col-md-3" id="divtxtReturnDate" style="visibility: hidden;">
                                         <div class="form-group">
                                             <span class="form-label">Returning</span>
-                                            <input name="ReturnDate" class="form-control" type="date" id="txtReturnDate">
+                                            <input name="ReturnDate" class="form-control" @*min="@date"*@ type="date" id="txtReturnDate">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <span class="form-label">Adults (18+)</span>
-                                            <select class="form-control">
-                                                <option value=1>1</option>
-                                                <option value=2>2</option>
-                                                <option value=3>3</option>
+                                            <select name="Adult" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
                                             </select>
                                             <span class="select-arrow"></span>
                                         </div>
@@ -144,7 +160,12 @@
         </div>
     }
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/css")
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
+
 
