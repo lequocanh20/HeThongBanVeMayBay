@@ -143,6 +143,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
+    <Compile Include="Controllers\HomePage1Controller.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,6 +203,52 @@
     <Compile Include="Ultilities\SessionManagement.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AssetHome1\css\animate.min.css" />
+    <Content Include="AssetHome1\css\bootstrap.min.css" />
+    <Content Include="AssetHome1\css\font-awesome.min.css" />
+    <Content Include="AssetHome1\css\jquery-ui.css" />
+    <Content Include="AssetHome1\css\jquery.fancybox.min.css" />
+    <Content Include="AssetHome1\css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="AssetHome1\css\meanmenu.css" />
+    <Content Include="AssetHome1\css\nice-select.css" />
+    <Content Include="AssetHome1\css\normalize.css" />
+    <Content Include="AssetHome1\css\owl.carousel.min.css" />
+    <Content Include="AssetHome1\css\responsive.css" />
+    <Content Include="AssetHome1\css\slick.css" />
+    <Content Include="AssetHome1\css\style.css" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.svg" />
+    <Content Include="AssetHome1\icon\facebook.png" />
+    <Content Include="AssetHome1\icon\instagram.png" />
+    <Content Include="AssetHome1\icon\linkedin.png" />
+    <Content Include="AssetHome1\icon\travel-icon.png" />
+    <Content Include="AssetHome1\icon\travel-icon2.png" />
+    <Content Include="AssetHome1\icon\travel-icon3.png" />
+    <Content Include="AssetHome1\icon\travel-icon4.png" />
+    <Content Include="AssetHome1\icon\Twitter.png" />
+    <Content Include="AssetHome1\images\1.jpg" />
+    <Content Include="AssetHome1\images\1.png" />
+    <Content Include="AssetHome1\images\2.jpg" />
+    <Content Include="AssetHome1\images\2.png" />
+    <Content Include="AssetHome1\images\3.jpg" />
+    <Content Include="AssetHome1\images\3.png" />
+    <Content Include="AssetHome1\images\Amazing.jpg" />
+    <Content Include="AssetHome1\images\banner.jpg" />
+    <Content Include="AssetHome1\images\blog-image.jpg" />
+    <Content Include="AssetHome1\images\blog-image0.jpg" />
+    <Content Include="AssetHome1\images\header-bg.jpg" />
+    <Content Include="AssetHome1\images\loading.gif" />
+    <Content Include="AssetHome1\images\logo.png" />
+    <Content Include="AssetHome1\images\London.jpg" />
+    <Content Include="AssetHome1\images\plane-img.png" />
+    <Content Include="AssetHome1\images\top_arrow.png" />
+    <Content Include="AssetHome1\js\bootstrap.bundle.min.js" />
+    <Content Include="AssetHome1\js\custom.js" />
+    <Content Include="AssetHome1\js\jquery-3.0.0.min.js" />
+    <Content Include="AssetHome1\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="AssetHome1\js\jquery.min.js" />
+    <Content Include="AssetHome1\js\jquery.validate.js" />
+    <Content Include="AssetHome1\js\plugin.js" />
+    <Content Include="AssetHome1\js\popper.min.js" />
     <Content Include="AssetsHome\css\style.css" />
     <Content Include="AssetsHome\favicons\android-chrome-192x192.png" />
     <Content Include="AssetsHome\favicons\android-chrome-512x512.png" />
@@ -2122,6 +2169,11 @@
     <Content Include="Models\DBEntities.edmx.diagram">
       <DependentUpon>DBEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.eot" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.woff" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AssetHome1\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HideDate.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2203,6 +2255,7 @@
     <Content Include="Views\Customer\Payment.cshtml" />
     <Content Include="Views\Authentication\LoginHK.cshtml" />
     <Content Include="Views\Customer\Register.cshtml" />
+    <Content Include="Views\HomePage1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
