@@ -1,0 +1,66 @@
+﻿@model HeThongBanVeMayBay.Models.PHIEUDATCHO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PHIEUDATCHO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDDatCho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDDatCho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDChuyenBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDChuyenBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiVe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiVe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "GetBookTicket")
+</p>

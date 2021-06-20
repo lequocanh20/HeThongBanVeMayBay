@@ -2260,6 +2260,7 @@
     <Content Include="Views\Customer\GetCustomer.cshtml" />
     <Content Include="Views\FlightTicket\Index.cshtml" />
     <Content Include="Views\FlightTicket\Details.cshtml" />
+    <Content Include="Views\BookTicket\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

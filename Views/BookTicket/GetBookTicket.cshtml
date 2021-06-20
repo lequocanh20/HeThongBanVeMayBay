@@ -34,31 +34,38 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDDatCho)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDChuyenBay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CMND)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoaiVe)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrangThai)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { madatcho = item.IDDatCho })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDDatCho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDChuyenBay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CMND)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiVe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @using (Html.BeginForm("Paid", "BookTicket", new { madatcho = item.IDDatCho }, FormMethod.Post))
+                {
+                    <input type="submit" value="Đã thanh toán" />
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { madatcho = item.IDDatCho }) |
+                @Html.ActionLink("Delete", "Delete", new { madatcho = item.IDDatCho })
+            </td>
+        </tr>
+    }
 
 </table>

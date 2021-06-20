@@ -76,7 +76,6 @@ D:\Do an\LTW NC\HeThongBanVeMayBay\bin\System.Web.WebPages.Razor.xml
 D:\Do an\LTW NC\HeThongBanVeMayBay\bin\Newtonsoft.Json.xml
 D:\Do an\LTW NC\HeThongBanVeMayBay\bin\Antlr3.Runtime.pdb
 D:\Do an\LTW NC\HeThongBanVeMayBay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Do an\LTW NC\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csprojAssemblyReference.cache
 D:\Do an\LTW NC\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.CoreCompileInputs.cache
 D:\Do an\LTW NC\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.CopyComplete
 D:\Do an\LTW NC\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.dll
@@ -341,3 +340,4 @@ F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.Cor
 F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.CopyComplete
 F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.dll
 F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.pdb
+D:\Do an\LTW NC\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csprojAssemblyReference.cache

@@ -214,18 +214,34 @@ namespace HeThongBanVeMayBay.Controllers
             }    
         }
         
-        [Authorize(Roles = "true, false, diffe")]
+        [Authorize(Roles = "true, false")]
         public ActionResult GetBookTicket()
         {
             return View(database.PHIEUDATCHOes.ToList());
         }
 
+        [Authorize(Roles = "true, false")]
+        public ActionResult Details(string madatcho)
+        {
+            return View(database.PHIEUDATCHOes.Where(s => s.IDDatCho == madatcho).FirstOrDefault());
+        }
 
+        [Authorize(Roles = "true, false")]
         public ActionResult Delete(string madatcho, PHIEUDATCHO pdc)
         {
             pdc = database.PHIEUDATCHOes.Where(s => s.IDDatCho == madatcho).FirstOrDefault();
             database.PHIEUDATCHOes.Remove(pdc);
             database.SaveChanges();
+            return RedirectToAction("GetBookTicket", "BookTicket");
+        }
+
+        [Authorize(Roles = "true, false")]
+        public ActionResult Paid(string madatcho)
+        {
+            using (var context = new QLBANVEMAYBAYEntities())
+            {
+                context.Database.ExecuteSqlCommand("UPDATE PHIEUDATCHO SET Status = 'Active' WHERE IDVeChuyenBay = '" + madatcho + "'");
+            }
             return RedirectToAction("GetBookTicket", "BookTicket");
         }
     }
