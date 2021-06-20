@@ -24,6 +24,7 @@
     <Property Name="ThoiGianToiDuKien" Type="time" Precision="7" Nullable="false" />
     <Property Name="SoGheHang1" Type="int" Nullable="false" />
     <Property Name="SoGheHang2" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="HANGBAY">
     <Key>
@@ -33,6 +34,7 @@
     <Property Name="IDHangBay" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="TenHangbay" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ImageAviation" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="HANHKHACH">
     <Key>
@@ -48,6 +50,7 @@
     <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="DienThoai" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="ChucVu" Type="nchar" MaxLength="10" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="MAYBAY">
     <Key>
@@ -59,6 +62,7 @@
     <Property Name="LoaiMayBay" Type="varchar(max)" Nullable="false" />
     <Property Name="HangBay" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="SucChuaToiDa" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="NHANVIEN">
     <Key>
@@ -76,6 +80,7 @@
     <Property Name="ChucVu" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="BoPhan" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="ImageEmp" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="PHIEUDATCHO">
     <Key>
@@ -96,6 +101,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDPhongBan" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="TenPhongBan" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="SANBAY">
     <Key>
@@ -104,6 +110,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IATA" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TenSB" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="VECHUYENBAY">
     <Key>
@@ -115,6 +122,7 @@
     <Property Name="CMND" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="GiaTien" Type="int" Nullable="false" />
     <Property Name="LoaiVe" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <Association Name="FK__CHUYENBAY__HangB__300424B4">
     <End Role="HANGBAY" Type="Self.HANGBAY" Multiplicity="1" />

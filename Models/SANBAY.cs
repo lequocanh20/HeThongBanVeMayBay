@@ -21,7 +21,7 @@ namespace HeThongBanVeMayBay.Models
             this.CHUYENBAYs = new HashSet<CHUYENBAY>();
             this.CHUYENBAYs1 = new HashSet<CHUYENBAY>();
         }
-    
+
         public int ID { get; set; }
 
         [Display(Name = "Mã sân bay")]
@@ -31,6 +31,7 @@ namespace HeThongBanVeMayBay.Models
         [Display(Name = "Tên sân bay")]
         [DataType(DataType.Text)]
         public string TenSB { get; set; }
+        public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHUYENBAY> CHUYENBAYs { get; set; }

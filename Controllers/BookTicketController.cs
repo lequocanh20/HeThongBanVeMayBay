@@ -16,7 +16,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<SANBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.SANBAYs)
+                foreach (var item in context.SANBAYs.Where(s => s.Status == "Active"))
                 {
                     rtn.Add(new SANBAY
                     {
@@ -83,7 +83,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<CHUYENBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingFrom + "' AND IDSanBayDen = '" + FlyingTo + "' AND NgayBay = '" + DepartDate.Value.ToString("yyyy/MM/dd") + "'").ToList())
+                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingFrom + "' AND IDSanBayDen = '" + FlyingTo + "' AND NgayBay = '" + DepartDate.Value.ToString("yyyy/MM/dd") + "' AND Status = 'Active'").ToList())
                 {
                     rtn.Add(new CHUYENBAY
                     {
@@ -108,7 +108,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<CHUYENBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingTo + "' AND IDSanBayDen = '" + FlyingFrom + "' AND NgayBay = '" + ReturnDate.Value.ToString("yyyy/MM/dd") + "'").ToList())
+                foreach (var item in context.CHUYENBAYs.SqlQuery("SELECT * FROM CHUYENBAY WHERE IDSanBayDi = '" + FlyingTo + "' AND IDSanBayDen = '" + FlyingFrom + "' AND NgayBay = '" + ReturnDate.Value.ToString("yyyy/MM/dd") + "' AND Status = 'Active'").ToList())
                 {
                     rtn.Add(new CHUYENBAY
                     {
@@ -212,6 +212,21 @@ namespace HeThongBanVeMayBay.Controllers
                 Session["IDChieuVe"] = khuhoi;
                 return Redirect(url);
             }    
-        }    
+        }
+        
+        [Authorize(Roles = "true, false, diffe")]
+        public ActionResult GetBookTicket()
+        {
+            return View(database.PHIEUDATCHOes.ToList());
+        }
+
+
+        public ActionResult Delete(string madatcho, PHIEUDATCHO pdc)
+        {
+            pdc = database.PHIEUDATCHOes.Where(s => s.IDDatCho == madatcho).FirstOrDefault();
+            database.PHIEUDATCHOes.Remove(pdc);
+            database.SaveChanges();
+            return RedirectToAction("GetBookTicket", "BookTicket");
+        }
     }
 }

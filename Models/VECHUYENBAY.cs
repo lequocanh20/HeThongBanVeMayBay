@@ -32,7 +32,8 @@ namespace HeThongBanVeMayBay.Models
 
         [Display(Name = "Loại vé")]
         public string LoaiVe { get; set; }
-
+        public string Status { get; set; }
+    
         public virtual CHUYENBAY CHUYENBAY { get; set; }
         public virtual HANHKHACH HANHKHACH { get; set; }
     }

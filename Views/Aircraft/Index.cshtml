@@ -27,6 +27,9 @@
         <th>
             @Html.DisplayNameFor(model => model.SucChuaToiDa)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
         <th></th>
     </tr>
 
@@ -49,9 +52,11 @@
                 @Html.DisplayFor(modelItem => item.SucChuaToiDa)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Status) 
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
             </td>
         </tr>
     }

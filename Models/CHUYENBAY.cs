@@ -21,7 +21,7 @@ namespace HeThongBanVeMayBay.Models
             this.PHIEUDATCHOes = new HashSet<PHIEUDATCHO>();
             this.VECHUYENBAYs = new HashSet<VECHUYENBAY>();
         }
-    
+
         public int ID { get; set; }
 
         [Display(Name = "Mã chuyến bay")]
@@ -61,7 +61,8 @@ namespace HeThongBanVeMayBay.Models
         [Display(Name = "Số ghế hạng 2")]
         [Required(ErrorMessage = "Vui lòng nhập số")]
         public int SoGheHang2 { get; set; }
-
+        public string Status { get; set; }
+    
         public virtual HANGBAY HANGBAY1 { get; set; }
         public virtual MAYBAY MAYBAY { get; set; }
         public virtual SANBAY SANBAY { get; set; }

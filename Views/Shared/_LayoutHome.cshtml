@@ -97,7 +97,7 @@
                                                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Xin chào @Session["IsCustomer"]</span>
-                                                            <img class="img-profile rounded-circle"
+                                                            <img class="img-profile rounded-circle" />
                                                         </a>
                                                     }
                                                 }
@@ -108,15 +108,12 @@
 
                                                         foreach (var item in context.HANHKHACHes.Where(s => s.UserName == User.Identity.Name))
                                                         {
-                                                            <p>
-                                                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                                @Html.ActionLink("Edit", "EditKH", new { accemp = item.UserName })
-                                                            </p>
+                                                            <a href="/Customer/Edit/@User.Identity.Name">
+                                                                Edit
+                                                            </a>
                                                         }
                                                     }
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="/Admin/Login/LogoutAccount" data-toggle="modal" data-target="#logoutModal">
-                                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                    <a href="/Authentication/LogoutHK">
                                                         Logout
                                                     </a>
                                                 </div>
@@ -125,25 +122,8 @@
                                         }
                                         else
                                         {
-                                    <li class="nav-item dropdown no-arrow">
-                                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img class="img-profile rounded-circle"
-                                                 src="~/Content/images/Cus.png">
-                                        </a>
-                                        <!-- Dropdown - User Information -->
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                             aria-labelledby="userDropdown">
-                                            <a class="dropdown-item" href="~/Authentication/LoginHK" data-toggle="modal">
-                                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                Login
-                                            </a>
-                                            <a class="dropdown-item" href="~/Customer/Register" data-toggle="modal">
-                                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                Register
-                                            </a>
-                                        </div>
-                                    </li>
+                                            <li><a href="/Authentication/LoginHK">Đăng nhập</a></li>
+                                            <li><a href="/Customer/Register">Đăng ký</a></li>
                                         }
                                     </ul>
                                 </nav>
@@ -255,6 +235,7 @@
             })
         })
     </script>
-
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>

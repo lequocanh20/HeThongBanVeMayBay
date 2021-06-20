@@ -65,6 +65,8 @@ namespace HeThongBanVeMayBay.Models
         public string ImageEmp { get; set; }
         [NotMapped]
         public HttpPostedFileBase UploadImage { get; set; }
+        public string Status { get; set; }
+    
         public virtual CHUCVU CHUCVU1 { get; set; }
         public virtual PHONGBAN PHONGBAN { get; set; }
     }

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<HeThongBanVeMayBay.Models.HANHKHACH>
+
+@{
+    ViewBag.Title = "GetCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách khách hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CMND)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenHanhKhach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DienThoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChucVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenHanhKhach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgaySinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChucVu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @using (Html.BeginForm("Block", "Customer", new { cmnd = item.CMND }, FormMethod.Post))
+            {
+                if (item.Status == "Active")
+                {
+                    <input type="submit" value="Khóa tài khoản" />
+                }
+                else if (item.Status == null)
+                {
+                }
+                else
+                {
+                    <input type="submit" value="Mở tài khoản" />
+                }
+            }
+            @Html.ActionLink("Details", "Details", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

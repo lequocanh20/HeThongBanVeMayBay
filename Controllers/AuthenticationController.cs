@@ -34,6 +34,11 @@ namespace HeThongBanVeMayBay.Controllers
                 {
                     IsAdmin = false;
                 }
+                else if (status == UserStatus.Block)
+                {
+                    ModelState.AddModelError("CredentialBlockError", "Tài khoản của bạn đã bị khóa");
+                    return View("Login");
+                }    
                 else
                 {
                     ModelState.AddModelError("CredentialError", "Tài khoản hoặc mật khẩu không đúng");
@@ -73,39 +78,50 @@ namespace HeThongBanVeMayBay.Controllers
         [HttpPost]
         public ActionResult LoginHK(HANHKHACH kh, string returnurl)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 UserStatus status = GetUserValidity1(kh);
-                if(status == UserStatus.NonAuthenticatedUser)
+                if (status == UserStatus.NonAuthenticatedUser)
                 {
                     FormsAuthentication.SetAuthCookie(kh.UserName, false);
                     Session["IsCustomer"] = kh.UserName;
                     if (returnurl == null)
                     {
-                        returnurl = "/BookTicket/Index";
+                        returnurl = "/HomePage1/Index";
                         return Redirect(returnurl);
-                    }    
+                    }
                     else
                     {
                         return Redirect(returnurl);
-                    }    
+                    }
+                }
+                else if (status == UserStatus.Block)
+                {
+                    ModelState.AddModelError("CredentialBlockError", "Tài khoản của bạn đã bị khóa");
+                    return View("LoginHK");
                 }
                 else
                 {
                     ModelState.AddModelError("CredentialError", "Tài khoản hoặc mật khẩu không đúng");
                     return View("LoginHK");
-                }               
-            }    
+                }
+            }
             else
             {
                 return View("LoginHK");
-            }    
+            }
         }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
         }
+        public ActionResult LogoutHK()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("LoginHK");
+        }
+
         public UserStatus GetUserValidity(NHANVIEN nv)
         {
             var status = UserStatus.NonAuthenticatedUser;
@@ -119,6 +135,10 @@ namespace HeThongBanVeMayBay.Controllers
                 {
                     status = UserStatus.AuthenticatedUser;
                 }
+                else if(database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "true" || database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "diffe")
+                {
+                    status = UserStatus.Block;
+                }    
                 else
                     status = UserStatus.NonAuthenticatedUser;
             }
@@ -128,8 +148,8 @@ namespace HeThongBanVeMayBay.Controllers
         {
             var status = UserStatus.NonAuthenticatedUser;
             string check_user = null;
-            var get_user_from_database = from u in database.HANHKHACHes 
-                                         where u.UserName == kh.UserName && u.Pass == kh.Pass
+            var get_user_from_database = from u in database.HANHKHACHes
+                                         where u.UserName == kh.UserName && u.Pass == kh.Pass 
                                          select new { u.UserName };
             check_user = get_user_from_database.Select(a => a.UserName).FirstOrDefault();
             if (check_user == null)
@@ -137,10 +157,15 @@ namespace HeThongBanVeMayBay.Controllers
                 status = UserStatus.Unknow;
                 return status;
             }
+            else if (check_user != null && database.HANHKHACHes.Where(s => s.UserName == get_user_from_database.Select(a => a.UserName).FirstOrDefault()).FirstOrDefault().Status == "UnActive")
+            {
+                status = UserStatus.Block;
+                return status;
+            }    
             else
             {
                 return status;
-            }    
-        }    
+            }
+        }
     }
 }

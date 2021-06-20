@@ -21,7 +21,7 @@ namespace HeThongBanVeMayBay.Models
             this.HANHKHACHes = new HashSet<HANHKHACH>();
             this.NHANVIENs = new HashSet<NHANVIEN>();
         }
-    
+
         public int ID { get; set; }
 
         [Display(Name = "Mã chức vụ")]
@@ -30,7 +30,6 @@ namespace HeThongBanVeMayBay.Models
         [Display(Name = "Tên chức vụ")]
         [Required(ErrorMessage = "Vui lòng nhập chữ")]
         public string TenChucVu { get; set; }
-
         public string IsAdmin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

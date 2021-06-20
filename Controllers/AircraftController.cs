@@ -23,7 +23,8 @@ namespace HeThongBanVeMayBay.Controllers
                     {
                         IDHangBay = item.IDHangBay,
                         TenHangbay = item.TenHangbay,
-                        ImageAviation = item.ImageAviation
+                        ImageAviation = item.ImageAviation,
+                        Status = item.Status
                     });
                 }
             }
@@ -112,27 +113,6 @@ namespace HeThongBanVeMayBay.Controllers
             database.Entry(mb).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult Delete(int Id)
-        {
-            return View(database.MAYBAYs.Where(s => s.ID == Id).FirstOrDefault());
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int Id, MAYBAY mb)
-        {
-            try
-            {
-                mb = database.MAYBAYs.Where(s => s.ID == Id).FirstOrDefault();
-                database.MAYBAYs.Remove(mb);
-                database.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return Content("This data is using in other table, Error Delete Aircraft");
-            }
         }
     }
 }

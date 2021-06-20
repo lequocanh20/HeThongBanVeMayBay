@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b3576495479040418ee6dd9b2312070f" Name="Diagram1">
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.CHUCVU" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.CHUYENBAY" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.HANGBAY" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.HANHKHACH" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.MAYBAY" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.NHANVIEN" Width="1.5" PointX="8.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.PHIEUDATCHO" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.PHONGBAN" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.SANBAY" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.VECHUYENBAY" Width="1.5" PointX="10.5" PointY="7.25" IsExpanded="true" />
+      <Diagram DiagramId="e8aea717f00c40939fca22de6d27ee82" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.CHUCVU" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.CHUYENBAY" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.HANGBAY" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.HANHKHACH" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.MAYBAY" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.NHANVIEN" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.PHIEUDATCHO" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.PHONGBAN" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.SANBAY" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANVEMAYBAYModel.VECHUYENBAY" Width="1.5" PointX="10.5" PointY="7.5" IsExpanded="true" />
         <AssociationConnector Association="QLBANVEMAYBAYModel.FK__HANHKHACH__ChucV__32E0915F" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANVEMAYBAYModel.FK__NHANVIEN__ChucVu__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="QLBANVEMAYBAYModel.FK__CHUYENBAY__HangB__300424B4" ManuallyRouted="false" />

@@ -72,31 +72,12 @@ namespace HeThongBanVeMayBay.Controllers
                 return View();
             }
         }
-        public ActionResult Delete(int Id)
-        {
-            return View(database.HANGBAYs.Where(s => s.ID == Id).FirstOrDefault());
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int Id, HANGBAY hb)
-        {
-            try
-            {
-                hb = database.HANGBAYs.Where(s => s.ID == Id).FirstOrDefault();
-                database.HANGBAYs.Remove(hb);
-                database.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return Content("This data is using in other table, Error Delete Aviation");
-            }
-        }
 
         public ActionResult Details(int Id)
         {
             return View(database.HANGBAYs.Where(s => s.ID == Id).FirstOrDefault());
         }
+
         public ActionResult GetAddNewLink()
         {
             if (Convert.ToBoolean(Session["IsAdmin"]))

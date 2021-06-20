@@ -21,6 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TenHangbay)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
         <th></th>
     </tr>
 
@@ -36,11 +39,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TenHangbay)
             </td>
-
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
             </td>
         </tr>
     }

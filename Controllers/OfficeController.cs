@@ -47,36 +47,25 @@ namespace HeThongBanVeMayBay.Controllers
         }
         public ActionResult Edit(int Id)
         {
+            List<string> office = new List<string>(3);
+            office.Add("true");
+            office.Add("false");
+            office.Add("diffe");
+            ViewBag.listAdmin = new SelectList(office);
             return View(database.CHUCVUs.Where(s => s.ID == Id).FirstOrDefault());
         }
 
         [HttpPost]
         public ActionResult Edit(int Id, CHUCVU Chucvu)
         {
+            List<string> office = new List<string>(3);
+            office.Add("true");
+            office.Add("false");
+            office.Add("diffe");         
             database.Entry(Chucvu).State = System.Data.Entity.EntityState.Modified;
+            ViewBag.listAdmin = new SelectList(office);
             database.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult Delete(int Id)
-        {
-            return View(database.CHUCVUs.Where(s => s.ID == Id).FirstOrDefault());
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int Id, CHUCVU Chucvu)
-        {
-            try
-            {
-                Chucvu = database.CHUCVUs.Where(s => s.ID == Id).FirstOrDefault();
-                database.CHUCVUs.Remove(Chucvu);
-                database.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return Content("This data is using in other table, Error Delete Office");
-            }
         }
     }
 }

@@ -51,26 +51,5 @@ namespace HeThongBanVeMayBay.Controllers
             database.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        public ActionResult Delete(int Id)
-        {
-            return View(database.PHONGBANs.Where(s => s.ID == Id).FirstOrDefault());
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int Id, PHONGBAN Phongban)
-        {
-            try
-            {
-                Phongban = database.PHONGBANs.Where(s => s.ID == Id).FirstOrDefault();
-                database.PHONGBANs.Remove(Phongban);
-                database.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return Content("This data is using in other table, Error Delete Category");
-            }
-        }
     }
 }

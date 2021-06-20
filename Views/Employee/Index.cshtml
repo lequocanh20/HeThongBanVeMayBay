@@ -78,10 +78,13 @@
                                 <td class="space"> @Html.DisplayFor(model => emp.BoPhan)</td>
                             </tr>
                             <tr>
+                                <td> @Html.LabelFor(model => emp.Status)</td>
+                                <td class="space"> @Html.DisplayFor(model => emp.Status)</td>
+                            </tr>
+                            <tr>
                                 <td>
                                     @Html.ActionLink("Edit", "Edit", new { id = emp.ID }) |
-                                    @Html.ActionLink("Details", "Details", new { id = emp.ID }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = emp.ID })
+                                    @Html.ActionLink("Details", "Details", new { id = emp.ID })
                                 </td>
                             </tr>
                         </table>

@@ -21,7 +21,7 @@ namespace HeThongBanVeMayBay.Models
             this.PHIEUDATCHOes = new HashSet<PHIEUDATCHO>();
             this.VECHUYENBAYs = new HashSet<VECHUYENBAY>();
         }
-    
+
         public int ID { get; set; }
         [Display(Name = "Tài khoản")]
         public string UserName { get; set; }
@@ -52,6 +52,8 @@ namespace HeThongBanVeMayBay.Models
 
         [Display(Name = "Chức vụ")]
         public string ChucVu { get; set; }
+        public string Status { get; set; }
+    
         public virtual CHUCVU CHUCVU1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUDATCHO> PHIEUDATCHOes { get; set; }

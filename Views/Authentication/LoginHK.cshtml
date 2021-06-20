@@ -48,6 +48,7 @@
                                     {
                                         <form class="user">
                                             @Html.ValidationMessage("CredentialError", new { style = "color:red;" })
+                                            @Html.ValidationMessage("CredentialBlockError", new { style = "color:red;" })
                                             <div class="form-group">
                                                 @Html.LabelFor(c => c.UserName)
                                                 @Html.TextBoxFor(x => x.UserName, new { htmlAttributes = new { @class = "form-control form-control-userl" } })

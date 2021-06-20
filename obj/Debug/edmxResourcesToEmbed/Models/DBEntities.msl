@@ -25,6 +25,7 @@
           <ScalarProperty Name="ThoiGianToiDuKien" ColumnName="ThoiGianToiDuKien" />
           <ScalarProperty Name="SoGheHang1" ColumnName="SoGheHang1" />
           <ScalarProperty Name="SoGheHang2" ColumnName="SoGheHang2" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -35,6 +36,7 @@
           <ScalarProperty Name="IDHangBay" ColumnName="IDHangBay" />
           <ScalarProperty Name="TenHangbay" ColumnName="TenHangbay" />
           <ScalarProperty Name="ImageAviation" ColumnName="ImageAviation" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -51,6 +53,7 @@
           <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
           <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
           <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -63,6 +66,7 @@
           <ScalarProperty Name="LoaiMayBay" ColumnName="LoaiMayBay" />
           <ScalarProperty Name="HangBay" ColumnName="HangBay" />
           <ScalarProperty Name="SucChuaToiDa" ColumnName="SucChuaToiDa" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -81,6 +85,7 @@
           <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
           <ScalarProperty Name="BoPhan" ColumnName="BoPhan" />
           <ScalarProperty Name="ImageEmp" ColumnName="ImageEmp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -103,6 +108,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IDPhongBan" ColumnName="IDPhongBan" />
           <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -112,6 +118,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IATA" ColumnName="IATA" />
           <ScalarProperty Name="TenSB" ColumnName="TenSB" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -124,6 +131,7 @@
           <ScalarProperty Name="CMND" ColumnName="CMND" />
           <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
           <ScalarProperty Name="LoaiVe" ColumnName="LoaiVe" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

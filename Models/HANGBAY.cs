@@ -24,7 +24,7 @@ namespace HeThongBanVeMayBay.Models
             this.CHUYENBAYs = new HashSet<CHUYENBAY>();
             this.MAYBAYs = new HashSet<MAYBAY>();
         }
-    
+
         public int ID { get; set; }
         [Display(Name = "Mã hãng hàng không")]
         public string IDHangBay { get; set; }
@@ -38,7 +38,8 @@ namespace HeThongBanVeMayBay.Models
 
         [NotMapped]
         public HttpPostedFileBase UploadImage { get; set; }
-
+        public string Status { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHUYENBAY> CHUYENBAYs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

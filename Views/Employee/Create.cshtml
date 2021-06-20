@@ -70,6 +70,14 @@
         <td></td>
     </tr>
     <tr>
+        <td> @Html.LabelFor(model => model.Status)</td>
+        <td>
+            @Html.DropDownListFor(m => m.Status,
+                                  new SelectList(Enum.GetValues(typeof(Status))),
+                                  "Chọn giới tính", new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
         <td>
             <input type="submit" value="Tạo mới" />
         </td>

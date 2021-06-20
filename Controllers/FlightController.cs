@@ -17,7 +17,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<CHUYENBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.CHUYENBAYs)
+                foreach (var item in context.CHUYENBAYs.Where(s => s.Status == "Active"))
                 {
                     rtn.Add(new CHUYENBAY
                     {
@@ -42,7 +42,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<SANBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.SANBAYs)
+                foreach (var item in context.SANBAYs.Where(s => s.Status == "Active"))
                 {
                     rtn.Add(new SANBAY
                     {
@@ -59,7 +59,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<HANGBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.HANGBAYs)
+                foreach (var item in context.HANGBAYs.Where(s => s.Status == "Active"))
                 {
                     rtn.Add(new HANGBAY
                     {
@@ -77,7 +77,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<MAYBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.MAYBAYs)
+                foreach (var item in context.MAYBAYs.Where(s => s.Status == "Active"))
                 {
                     rtn.Add(new MAYBAY
                     {
@@ -196,27 +196,6 @@ namespace HeThongBanVeMayBay.Controllers
             }
             database.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult Delete(int Id)
-        {
-            return View(database.CHUYENBAYs.Where(s => s.ID == Id).FirstOrDefault());
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int Id, CHUYENBAY cb)
-        {
-            try
-            {
-                cb = database.CHUYENBAYs.Where(s => s.ID == Id).FirstOrDefault();
-                database.CHUYENBAYs.Remove(cb);
-                database.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return Content("This data is using in other table, Error Delete Flight");
-            }
         }
     }
 }

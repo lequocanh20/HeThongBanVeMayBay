@@ -1,5 +1,5 @@
 ﻿@model HeThongBanVeMayBay.Models.HANGBAY
-
+@using HeThongBanVeMayBay.Models
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -48,6 +48,15 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Status,
+                                        new SelectList(Enum.GetValues(typeof(Status))),
+                                        "Chọn giới tính", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

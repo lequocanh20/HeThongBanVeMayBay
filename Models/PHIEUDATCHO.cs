@@ -36,7 +36,7 @@ namespace HeThongBanVeMayBay.Models
 
         [Display(Name = "Trạng thái")]
         public string TrangThai { get; set; }
-    
+
         public virtual CHUYENBAY CHUYENBAY { get; set; }
         public virtual HANHKHACH HANHKHACH { get; set; }
     }

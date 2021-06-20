@@ -20,7 +20,7 @@ namespace HeThongBanVeMayBay.Models
         {
             this.CHUYENBAYs = new HashSet<CHUYENBAY>();
         }
-    
+
         public int ID { get; set; }
         [Display(Name = "Số hiệu máy bay")]
         public string IDMayBay { get; set; }
@@ -40,6 +40,7 @@ namespace HeThongBanVeMayBay.Models
         [Required(ErrorMessage = "Vui lòng nhập số")]
         [Range(100, 800, ErrorMessage = "Sức chứa tối đa quá lớn so với thông số hãng máy bay đưa ra, vui lòng kiểm tra lại")]
         public int SucChuaToiDa { get; set; }
+        public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHUYENBAY> CHUYENBAYs { get; set; }

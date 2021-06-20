@@ -5,6 +5,7 @@
         AuthenticatedAdmin,
         AuthenticatedUser,
         NonAuthenticatedUser,
-        Unknow
+        Unknow,
+        Block
     }
 }

@@ -147,6 +147,7 @@ namespace HeThongBanVeMayBay.Controllers
                 }    
                 else
                 {
+                    Kh.Status = "NonUser";
                     database.HANHKHACHes.Add(Kh);
                     database.SaveChanges();
                 }                   
@@ -159,7 +160,7 @@ namespace HeThongBanVeMayBay.Controllers
                     Session["email"] = Kh.Email;
                     RandomGenerator generatorcd = new RandomGenerator();
                     string randomcd = generatorcd.Generate();
-                    context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'false')");
+                    context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'Active')");
                     context.SaveChanges();
                     if(Convert.ToString(Session["CMND"]) == "")
                     {
@@ -177,7 +178,7 @@ namespace HeThongBanVeMayBay.Controllers
                         int cv = Convert.ToInt32(Session["IDChieuVe"]);
                         string IdCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().IDChuyenBay;
                         double GiaTienCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().GiaTien;
-                        context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'false')");
+                        context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'UnActive')");
                         context.SaveChanges();
                     }
                     break;
@@ -188,7 +189,7 @@ namespace HeThongBanVeMayBay.Controllers
                     {
                         RandomGenerator generatorcd = new RandomGenerator();
                         string randomcd = generatorcd.Generate();
-                        context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'false')");
+                        context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'UnActive')");
                         context.SaveChanges();
                         if (Convert.ToInt32(Session["IDChieuVe"]) != 0)
                         {
@@ -197,7 +198,7 @@ namespace HeThongBanVeMayBay.Controllers
                             int cv = Convert.ToInt32(Session["IDChieuVe"]);
                             //string IdCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().IDChuyenBay;
                             double GiaTienCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().GiaTien;
-                            context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'false')");
+                            context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'UnActive')");
                             context.SaveChanges();                            
                         }
                         if (Convert.ToString(Session["IsCustomer"]) != "")
@@ -209,7 +210,7 @@ namespace HeThongBanVeMayBay.Controllers
                     {
                         string cmnd_xacnhan = Convert.ToString(Session["CMND"]);
                         string madatchocd = database.PHIEUDATCHOes.Where(s => s.CMND == cmnd_xacnhan).FirstOrDefault().IDDatCho;
-                        context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + madatchocd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'false')");
+                        context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + madatchocd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'UnActive')");
                         context.SaveChanges();
                         if (Convert.ToInt32(Session["IDChieuVe"]) != 0)
                         {
@@ -217,7 +218,7 @@ namespace HeThongBanVeMayBay.Controllers
                             //int IdCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().ID;
                             double GiaTienCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().GiaTien;
                             string madatchocv = database.PHIEUDATCHOes.Where(s => s.CMND == cmnd_xacnhan && s.IDChuyenBay == cv).FirstOrDefault().IDDatCho;
-                            context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + madatchocv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'false')");
+                            context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + madatchocv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'UnActive')");
                             context.SaveChanges();
                         }
                     }
@@ -254,8 +255,8 @@ namespace HeThongBanVeMayBay.Controllers
                 string cmnd = Convert.ToString(Session["CMND"]);
                 string madatcho = database.PHIEUDATCHOes.Where(s => s.CMND == cmnd).OrderBy(x => x.TrangThai).FirstOrDefault().IDDatCho;
                 int soluongve = Convert.ToInt32(Session["Adult"]);
-                context.Database.ExecuteSqlCommand("UPDATE PHIEUDATCHO SET TrangThai = 'true' WHERE IDDatCho = '" + madatcho + "'");
-                context.Database.ExecuteSqlCommand("INSERT INTO VECHUYENBAY(IDVeChuyenBay, IDChuyenBay, CMND, GiaTien, LoaiVe) SELECT IDDatCho, IDChuyenBay, CMND, GiaTien, LoaiVe FROM PHIEUDATCHO WHERE TrangThai = 'true'");
+                context.Database.ExecuteSqlCommand("UPDATE PHIEUDATCHO SET TrangThai = 'Active' WHERE IDDatCho = '" + madatcho + "'");
+                context.Database.ExecuteSqlCommand("INSERT INTO VECHUYENBAY(IDVeChuyenBay, IDChuyenBay, CMND, GiaTien, LoaiVe, Status) SELECT IDDatCho, IDChuyenBay, CMND, GiaTien, LoaiVe, TrangThai FROM PHIEUDATCHO WHERE TrangThai = 'Active'");
                 if (madatcho == database.VECHUYENBAYs.Where(s => s.IDVeChuyenBay == madatcho).FirstOrDefault().IDVeChuyenBay)
                 {
                     context.Database.ExecuteSqlCommand("DELETE FROM PHIEUDATCHO WHERE IDDatCho = '"+ madatcho +"'");
@@ -267,6 +268,43 @@ namespace HeThongBanVeMayBay.Controllers
             {
                 return Content("Thanh toán bị lỗi");
             }    
+        }
+
+        [Authorize(Roles = "true, false")]
+        public ActionResult GetCustomer()
+        {
+            return View(database.HANHKHACHes.ToList());
+        }
+
+        public ActionResult Block(string cmnd)
+        {
+            using (var context = new QLBANVEMAYBAYEntities())
+            {
+                if(database.HANHKHACHes.Where(s => s.CMND == cmnd).FirstOrDefault().Status == "Active")
+                {
+                    context.Database.ExecuteSqlCommand("UPDATE HANHKHACH SET Status = 'UnActive' WHERE CMND = '" + cmnd + "'");
+                }       
+                else
+                {
+                    context.Database.ExecuteSqlCommand("UPDATE HANHKHACH SET Status = 'Active' WHERE CMND = '" + cmnd + "'");
+                }    
+            }
+            return RedirectToAction("GetCustomer", "Customer");
+        }
+
+        public ActionResult Edit(string username)
+        {
+            username = User.Identity.Name;
+            return View(database.HANHKHACHes.Where(s => s.UserName == username).FirstOrDefault());
+        }
+
+        [HttpPost]
+        public ActionResult Edit(string username, HANHKHACH kh)
+        {
+            username = User.Identity.Name;
+            database.Entry(kh).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("Edit", "Customer", username);
         }
 
         public ActionResult Register()
@@ -281,6 +319,7 @@ namespace HeThongBanVeMayBay.Controllers
             try
             {
                 kh.ChucVu = "KH";
+                kh.Status = "Active";
                 database.HANHKHACHes.Add(kh);
                 database.SaveChanges();
                 return RedirectToAction("LoginHK", "Authentication");
@@ -290,5 +329,7 @@ namespace HeThongBanVeMayBay.Controllers
                 return View("Register");
             }
         }
+
+
     }
 }

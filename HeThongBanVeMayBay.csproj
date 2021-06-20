@@ -143,6 +143,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
+    <Compile Include="Controllers\FlightTicketController.cs" />
     <Compile Include="Controllers\HomePage1Controller.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
@@ -194,6 +195,8 @@
     <Compile Include="Models\SANBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\StatusTicket.cs" />
     <Compile Include="Models\UserStatus.cs" />
     <Compile Include="Models\VECHUYENBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
@@ -2164,6 +2167,11 @@
     <Content Include="Assets\vendor\jquery\jquery.min.map" />
     <Content Include="Assets\vendor\jquery\jquery.slim.min.map" />
     <Content Include="AssetsHome\favicons\site.webmanifest" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.eot" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.woff" />
+    <Content Include="AssetHome1\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AssetHome1\fonts\FontAwesome.otf" />
     <EntityDeploy Include="Models\DBEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBEntities.Designer.cs</LastGenOutput>
@@ -2171,11 +2179,6 @@
     <Content Include="Models\DBEntities.edmx.diagram">
       <DependentUpon>DBEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="AssetHome1\fonts\fontawesome-webfont.eot" />
-    <Content Include="AssetHome1\fonts\fontawesome-webfont.ttf" />
-    <Content Include="AssetHome1\fonts\fontawesome-webfont.woff" />
-    <Content Include="AssetHome1\fonts\fontawesome-webfont.woff2" />
-    <Content Include="AssetHome1\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HideDate.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2205,39 +2208,32 @@
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Airport\Index.cshtml" />
     <Content Include="Views\Airport\Create.cshtml" />
     <Content Include="Views\Airport\Edit.cshtml" />
     <Content Include="Views\Airport\Details.cshtml" />
-    <Content Include="Views\Airport\Delete.cshtml" />
     <Content Include="Views\Flight\Index.cshtml" />
     <Content Include="Views\Flight\Create.cshtml" />
     <Content Include="Views\Flight\Details.cshtml" />
     <Content Include="Views\Flight\Edit.cshtml" />
-    <Content Include="Views\Flight\Delete.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Employee\AddNewLink.cshtml" />
     <Content Include="Views\Office\Index.cshtml" />
     <Content Include="Views\Office\Details.cshtml" />
     <Content Include="Views\Office\Edit.cshtml" />
-    <Content Include="Views\Office\Delete.cshtml" />
     <Content Include="Views\Aviation\Index.cshtml" />
     <Content Include="Views\Aviation\Create.cshtml" />
     <Content Include="Views\Aviation\Edit.cshtml" />
-    <Content Include="Views\Aviation\Delete.cshtml" />
     <Content Include="Views\Aviation\Details.cshtml" />
     <Content Include="Views\Aviation\AddNewLink.cshtml" />
     <Content Include="Views\Aircraft\Index.cshtml" />
     <Content Include="Views\Aircraft\Create.cshtml" />
     <Content Include="Views\Aircraft\Details.cshtml" />
     <Content Include="Views\Aircraft\Edit.cshtml" />
-    <Content Include="Views\Aircraft\Delete.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\HomePage\Contact.cshtml" />
     <Content Include="Views\HomePage\About.cshtml" />
@@ -2259,6 +2255,11 @@
     <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\HomePage1\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Views\BookTicket\GetBookTicket.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\GetCustomer.cshtml" />
+    <Content Include="Views\FlightTicket\Index.cshtml" />
+    <Content Include="Views\FlightTicket\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

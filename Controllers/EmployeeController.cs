@@ -12,7 +12,7 @@ using PagedList.Mvc;
 
 namespace HeThongBanVeMayBay.Controllers
 {
-    [Authorize(Roles = "true, false")]
+    [Authorize(Roles = "true, diffe, false")]
     public class EmployeeController : Controller
     {
         // GET: Employee
@@ -35,7 +35,8 @@ namespace HeThongBanVeMayBay.Controllers
                         NgayNghiLam = item.NgayNghiLam,
                         ChucVu = item.CHUCVU1.TenChucVu,
                         BoPhan = item.PHONGBAN.TenPhongBan,
-                        ImageEmp = item.ImageEmp
+                        ImageEmp = item.ImageEmp,
+                        Status = item.Status
                     });
                 }
             }
@@ -44,15 +45,16 @@ namespace HeThongBanVeMayBay.Controllers
         public static List<PHONGBAN> SelectAllArticle1()
         {
             var rtn = new List<PHONGBAN>();
+            
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.PHONGBANs)
+                foreach (var item in context.PHONGBANs.Where(s => s.Status == "Active"))
                 {
                     rtn.Add(new PHONGBAN
                     {
                         ID = item.ID,
                         IDPhongBan = item.IDPhongBan,
-                        TenPhongBan = item.TenPhongBan
+                        TenPhongBan = item.TenPhongBan,
                     });
                 }
             }
@@ -126,7 +128,7 @@ namespace HeThongBanVeMayBay.Controllers
         }
 
 
-        [Authorize(Roles = "true, false")]
+        [Authorize(Roles = "true, diffe, false")]
         public ActionResult Edit(int Id)
         {
             var username = User.Identity.Name;
@@ -140,7 +142,7 @@ namespace HeThongBanVeMayBay.Controllers
                 ViewBag.listPhongBan = new SelectList(list, "IDPhongBan", "TenPhongBan", "");
                 view = View(database.NHANVIENs.Where(s => s.ID == Id).FirstOrDefault());
             }    
-            else if ((database.CHUCVUs.Where(x => x.IDChucVu.Trim() == data).FirstOrDefault().IsAdmin) == "false")
+            else
             {
                 Id = database.NHANVIENs.Where(s => s.UserName == username).FirstOrDefault().ID;
                 List<PHONGBAN> list = SelectAllArticle1().ToList();
@@ -183,30 +185,9 @@ namespace HeThongBanVeMayBay.Controllers
                 return View();
             }
         }
-
-        [Authorize(Roles = "true")]
-        public ActionResult Delete (int Id)
-        {
-            return View(database.NHANVIENs.Where(s => s.ID == Id).FirstOrDefault());
-        }
         
-        [HttpPost]
-        public ActionResult Delete (int Id, NHANVIEN nv)
-        {
-            try
-            {
-                nv = database.NHANVIENs.Where(s => s.ID == Id).FirstOrDefault();
-                database.NHANVIENs.Remove(nv);
-                database.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return Content("This data is using in other table, Error Delete Employee");
-            }
-        }
 
-        [Authorize(Roles = "true, false")] 
+        [Authorize(Roles = "true, diffe, false")] 
         public ActionResult Details (int Id)
         {
             return View(database.NHANVIENs.Where(s => s.ID == Id).FirstOrDefault());

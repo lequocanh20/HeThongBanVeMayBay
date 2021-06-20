@@ -1,0 +1,66 @@
+﻿@model HeThongBanVeMayBay.Models.VECHUYENBAY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VECHUYENBAY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDVeChuyenBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDVeChuyenBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDChuyenBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDChuyenBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiVe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiVe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

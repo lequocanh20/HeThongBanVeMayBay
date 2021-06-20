@@ -20,7 +20,7 @@ namespace HeThongBanVeMayBay.Models
         {
             this.NHANVIENs = new HashSet<NHANVIEN>();
         }
-    
+
         public int ID { get; set; }
 
         [Display(Name = "Mã phòng ban")]
@@ -30,6 +30,7 @@ namespace HeThongBanVeMayBay.Models
         [Display(Name = "Tên phòng ban")]
         [DataType(DataType.Text)]
         public string TenPhongBan { get; set; }
+        public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NHANVIEN> NHANVIENs { get; set; }

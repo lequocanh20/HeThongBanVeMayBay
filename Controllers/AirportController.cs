@@ -7,7 +7,7 @@ using HeThongBanVeMayBay.Models;
 
 namespace HeThongBanVeMayBay.Controllers
 {
-    [Authorize(Roles = "true, false")]
+    [Authorize(Roles = "true, diffe, false")]
     public class AirportController : Controller
     {
         // GET: Airport
@@ -41,6 +41,7 @@ namespace HeThongBanVeMayBay.Controllers
             return View(database.SANBAYs.Where(s => s.ID == Id).FirstOrDefault());
         }
 
+        [Authorize(Roles = "true")]
         [HttpPost]
         public ActionResult Edit(int Id, SANBAY sb)
         {
@@ -51,27 +52,6 @@ namespace HeThongBanVeMayBay.Controllers
         public ActionResult Details(int Id)
         {
             return View(database.SANBAYs.Where(s => s.ID == Id).FirstOrDefault());
-        }
-        [Authorize(Roles = "true")]
-        public ActionResult Delete(int Id)
-        {
-            return View(database.SANBAYs.Where(s => s.ID == Id).FirstOrDefault());
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int Id, SANBAY sb)
-        {
-            try
-            {
-                sb = database.SANBAYs.Where(s => s.ID == Id).FirstOrDefault();
-                database.SANBAYs.Remove(sb);
-                database.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return Content("This data is using in other table, Error Delete Airport");
-            }
-        }
+        }        
     }
 }
