@@ -1,0 +1,79 @@
+﻿#masthead-search {
+	float: right;
+	margin-top: 0.625em;
+	width: 100%;
+	max-width: 14em;
+	position: relative;
+	-webkit-appearance: none;
+}
+
+	#masthead-search input {
+		background: transparent;
+		border: none;
+		border-color: #fff;
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 50px;
+		outline: none;
+		width: 100%;
+		padding: 0.75em 1.125em;
+		transition: border-color 0.3s ease;
+		-webkit-appearance: none;
+	}
+
+	#masthead-search button {
+		background: none;
+		border: none;
+		color: #fff;
+		font-size: 1em;
+		padding: 0;
+		position: absolute;
+		top: 50%;
+		right: 0.75em;
+		transform: translateY(-50%);
+		-webkit-appearance: none;
+	}
+
+#masthead.is-active #masthead-search button {
+	color: #b4b9ba;
+}
+
+#masthead.is-active #masthead-search input {
+	border-color: #b4b9ba;
+}
+
+#masthead-search ::-webkit-input-placeholder {
+	color: #fff;
+}
+
+#masthead-search :-moz-placeholder {
+	color: #fff;
+	opacity: 1;
+}
+
+#masthead-search ::-moz-placeholder {
+	color: #fff;
+	opacity: 1;
+}
+
+#masthead-search :-ms-input-placeholder {
+	color: #fff;
+}
+
+#masthead.is-active #masthead-search ::-webkit-input-placeholder {
+	color: #b4b9ba;
+}
+
+#masthead.is-active #masthead-search :-moz-placeholder {
+	color: #b4b9ba;
+	opacity: 1;
+}
+
+#masthead.is-active #masthead-search ::-moz-placeholder {
+	color: #b4b9ba;
+	opacity: 1;
+}
+
+#masthead.is-active #masthead-search :-ms-input-placeholder {
+	color: #b4b9ba
+}

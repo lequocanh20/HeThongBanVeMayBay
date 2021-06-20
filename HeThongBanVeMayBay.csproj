@@ -214,6 +214,7 @@
     <Content Include="AssetHome1\css\normalize.css" />
     <Content Include="AssetHome1\css\owl.carousel.min.css" />
     <Content Include="AssetHome1\css\responsive.css" />
+    <Content Include="AssetHome1\css\Search.css" />
     <Content Include="AssetHome1\css\slick.css" />
     <Content Include="AssetHome1\css\style.css" />
     <Content Include="AssetHome1\fonts\fontawesome-webfont.svg" />
@@ -1971,6 +1972,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\add.jpg" />
     <Content Include="Content\images\background.jpg" />
+    <Content Include="Content\images\Cus.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -2256,6 +2258,7 @@
     <Content Include="Views\Authentication\LoginHK.cshtml" />
     <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\HomePage1\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

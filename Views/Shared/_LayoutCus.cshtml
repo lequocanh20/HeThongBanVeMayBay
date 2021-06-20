@@ -1,0 +1,150 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aviation Consulting LLC specialises in aircraft maintenance data and regulatory compliance. Find out more here!">
+    <meta name="author" content="Simon Vardy">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/369f2651cf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/AssetsHome/css/style.css" type="text/css">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/AssetsHome/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/AssetsHome/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/AssetsHome/favicons/favicon-16x16.png">
+    <link type="text/css" rel="stylesheet" href="~/AssetsHome/css/Navigation.css" />
+    <link rel="manifest" href="~/AssetsHome/favicons/site.webmanifest">
+    <title>Aviation Consultancy LLC</title>
+</head>
+
+<body>
+
+    <!-- Navbar Section -->
+    <header>
+        <!-- START: RUBY DEMO HEADER -->
+        <div class="ruby-menu-demo-header">
+            <!-- ########################### -->
+            <!-- START: RUBY HORIZONTAL MENU -->
+            <div class="ruby-wrapper">
+                <button class="c-hamburger c-hamburger--htx visible-xs">
+                    <span>toggle menu</span>
+                </button>
+                <ul class="ruby-menu">
+                    <li class="ruby-active-menu-item"><a href="#">Home</a></li>
+                    <li><a href="#">Classic</a></li>
+                    <li><a href="#">Classic</a></li>
+                    <li><a href="#">Classic</a></li>
+                    <li><a href="#">Classic</a></li>
+                    <li class="ruby-menu-right"><a href="#">Đăng ký</a></li>
+                    <li class="ruby-menu-right"> |</li>
+                    <li class="ruby-menu-right"><a href="#">Đăng Nhập</a></li>
+                    <li class="ruby-menu-right ruby-menu-social ruby-menu-search">
+                        <form id="masthead-search">
+                            @using (Html.BeginForm("SearchDatCho", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input type="text" name="madatcho" aria-labelledby="search-label" placeholder="Search&hellip;" class="draw">
+                                <button type="submit">&rarr;</button>
+                            }
+
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- /Navbar Section -->
+
+    @RenderBody()
+    <!-- Google Maps -->
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe title="Google maps business location" class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d538.1462749940697!2d106.66674681531053!3d10.776330294162042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3ae5901877%3A0x42c37972de865906!2zODI4IFPGsCBW4bqhbiBI4bqhbmgsIFBoxrDhu51uZyAxMiwgUXXhuq1uIDEwLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1621963180514!5m2!1sen!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+    <!-- /Google Maps -->
+    <!-- Footer -->
+    <footer class="container-fluid footer-container text-center">
+        <div id="footer-section" class="row">
+            <div class="col-12 col-lg-4 mx-auto mb-2 social-media icon-bg-sm">
+                <h4>Get in touch</h4>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <span class="sr-only">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                            <span class="sr-only">YouTube</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4 mb-2 sitemap">
+                <h4>Sitemap</h4>
+                <span><i class="fas fa-sitemap"></i></span>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="index.html"><span>Home</span></a>
+                    </li>
+                    <li>
+                        <a href="our-services.html"><span>Our Services</span></a>
+                    </li>
+                    <li>
+                        <a href="about-us.html"><span>About Us</span></a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html"><span>Contact Us</span></a>
+                    </li>
+                    <li>
+                        <a href="privacy.html"><span>Privacy Policy</span></a>
+                    </li>
+                    <li>
+                        <a href="terms-and-conditions.html"><span>Terms & Conditions</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4 contact-address">
+                <h4>Contact</h4>
+                <span><i class="fas fa-map-marker-alt"></i></span>
+                <p>
+                    Aviation Consultancy LLC<br>
+                    World Business Centre 3, Newall Road,<br>
+                    London Heathrow Airport,<br>
+                    Middlesex, TW6 2TA<br>
+                    <strong>United Kingdom.</strong>
+                </p>
+                <p><i class="fas fa-phone-alt"></i> +44 (0)208 042 200888</p>
+            </div>
+            <div class="col-12">
+                <p>© Copyright Aviation Consultancy LLC 2020. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- /Scripts -->
+
+</body>
+
+</html>

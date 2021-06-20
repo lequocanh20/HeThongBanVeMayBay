@@ -1,7 +1,7 @@
 ﻿@model HeThongBanVeMayBay.Models.HANHKHACH
 @using HeThongBanVeMayBay.Models;
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
 <!DOCTYPE html>
@@ -87,15 +87,15 @@
         </div>
         @if (Convert.ToString(Session["remember"]) != "")
         {
-            <div class="form-group" style="display: none">
+            <div class="form-group" style="display: none; left:10px; position:relative;">
                 <input type="checkbox" id="Remember" name="Remember" />
                 <span></span>Gửi vé đến địa chỉ Email này
             </div>
         }
         else
         {
-            <div class="form-group">
-                <input type="checkbox" id="Remember" name="Remember" />
+            <div class="form-group" style="left: 10px; position: relative;">
+                <input type="checkbox" id="Remember" name="Remember"  />
                 <span></span>Gửi vé đến địa chỉ Email này
             </div>
         }
