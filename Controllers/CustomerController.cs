@@ -27,12 +27,12 @@ namespace HeThongBanVeMayBay.Controllers
                     Kh.GioiTinh = item.GioiTinh;
                     Kh.NgaySinh = item.NgaySinh;
                 }
-            }  
+            }
             else
             {
                 Kh = new HANHKHACH();
-            }    
-            
+            }
+
             return View(Kh);
         }
 
@@ -43,8 +43,8 @@ namespace HeThongBanVeMayBay.Controllers
             Session.Remove("CMND");
             using (MailMessage mail = new MailMessage())
             {
-                
-                mail.To.Add(Convert.ToString(Session["email"]));                                       
+
+                mail.To.Add(Convert.ToString(Session["email"]));
                 Session.Remove("email");
                 mail.From = new MailAddress("lequocanh.qa@gmail.com");
                 mail.Subject = "Đại lý vé máy bay Anh-Tường";
@@ -129,28 +129,28 @@ namespace HeThongBanVeMayBay.Controllers
             //string[] random = generator.GetStore()
             var remember = collection["Remember"];
             Session["remember"] = remember;
-            if(remember != null)
+            if (remember != null)
             {
                 Session["email"] = Kh.Email;
-            }    
+            }
             int dem = 0;
             for (int i = 0; i < Convert.ToInt32(Session["Adult"]); i++)
-            {             
-                var get_cmnd_from_database = from u 
-                                             in database.HANHKHACHes 
-                                             where u.CMND == Kh.CMND 
+            {
+                var get_cmnd_from_database = from u
+                                             in database.HANHKHACHes
+                                             where u.CMND == Kh.CMND
                                              select new { u.CMND };
                 string check_cmnd = get_cmnd_from_database.Select(a => a.CMND).FirstOrDefault();
                 if (check_cmnd != null)
                 {
                     database.SaveChanges();
-                }    
+                }
                 else
                 {
                     Kh.Status = "NonUser";
                     database.HANHKHACHes.Add(Kh);
                     database.SaveChanges();
-                }                   
+                }
                 int cd = Convert.ToInt32(Session["IDChieuDi"]);
                 var context = new QLBANVEMAYBAYEntities();
                 //string IdCd = database.CHUYENBAYs.Where(s => s.ID == cd).FirstOrDefault().IDChuyenBay;
@@ -162,11 +162,11 @@ namespace HeThongBanVeMayBay.Controllers
                     string randomcd = generatorcd.Generate();
                     context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'UnActive')");
                     context.SaveChanges();
-                    if(Convert.ToString(Session["CMND"]) == "")
+                    if (Convert.ToString(Session["CMND"]) == "")
                     {
                         Session["CMND"] = Kh.CMND;
                         Session.Remove("IDChieuDi");
-                    }    
+                    }
                     else
                     {
                         Session.Remove("IDChieuDi");
@@ -199,13 +199,13 @@ namespace HeThongBanVeMayBay.Controllers
                             //string IdCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().IDChuyenBay;
                             double GiaTienCv = database.CHUYENBAYs.Where(s => s.ID == cv).FirstOrDefault().GiaTien;
                             context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcv + "', '" + cv + "', '" + Kh.CMND + "','" + GiaTienCv + "', 'Economic', 'UnActive')");
-                            context.SaveChanges();                            
+                            context.SaveChanges();
                         }
                         if (Convert.ToString(Session["IsCustomer"]) != "")
                         {
                             Session["taikhoandadangnhap"] = true;
-                        } 
-                    }   
+                        }
+                    }
                     else
                     {
                         string cmnd_xacnhan = Convert.ToString(Session["CMND"]);
@@ -227,16 +227,16 @@ namespace HeThongBanVeMayBay.Controllers
                     string madatcholuutam = database.PHIEUDATCHOes.Where(s => s.CMND == cmnd).FirstOrDefault().IDDatCho;
                     if (database.PHIEUDATCHOes.Count(s => s.IDDatCho == madatcholuutam) < Convert.ToInt32(Session["Adult"]))
                     {
-                        ModelState.Clear();                        
+                        ModelState.Clear();
                         return RedirectToAction("Index");
                     }
-                    if(Convert.ToString(Session["remember"]) == "")
+                    if (Convert.ToString(Session["remember"]) == "")
                     {
                         Session["email"] = Kh.Email;
-                    }    
+                    }
                     Session.Remove("IDChieuDi");
                     Session.Remove("IDChieuVe");
-                    break;                   
+                    break;
                 }
             }
             return RedirectToAction("Payment");
@@ -259,15 +259,15 @@ namespace HeThongBanVeMayBay.Controllers
                 context.Database.ExecuteSqlCommand("INSERT INTO VECHUYENBAY(IDVeChuyenBay, IDChuyenBay, CMND, GiaTien, LoaiVe, Status) SELECT IDDatCho, IDChuyenBay, CMND, GiaTien, LoaiVe, TrangThai FROM PHIEUDATCHO WHERE TrangThai = 'Active'");
                 if (madatcho == database.VECHUYENBAYs.Where(s => s.IDVeChuyenBay == madatcho).FirstOrDefault().IDVeChuyenBay)
                 {
-                    context.Database.ExecuteSqlCommand("DELETE FROM PHIEUDATCHO WHERE IDDatCho = '"+ madatcho +"'");
-                    context.Database.ExecuteSqlCommand("UPDATE CHUYENBAY SET SoGheHang2 = SoGheHang2 - " + soluongve + " WHERE ID = "+ database.VECHUYENBAYs.Where(s => s.IDVeChuyenBay == madatcho).FirstOrDefault().IDChuyenBay + "");
+                    context.Database.ExecuteSqlCommand("DELETE FROM PHIEUDATCHO WHERE IDDatCho = '" + madatcho + "'");
+                    context.Database.ExecuteSqlCommand("UPDATE CHUYENBAY SET SoGheHang2 = SoGheHang2 - " + soluongve + " WHERE ID = " + database.VECHUYENBAYs.Where(s => s.IDVeChuyenBay == madatcho).FirstOrDefault().IDChuyenBay + "");
                 }
                 return RedirectToAction("SendMail");
-            }    
+            }
             else
             {
                 return Content("Thanh toán bị lỗi");
-            }    
+            }
         }
 
         [Authorize(Roles = "true, false")]
@@ -280,14 +280,14 @@ namespace HeThongBanVeMayBay.Controllers
         {
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                if(database.HANHKHACHes.Where(s => s.CMND == cmnd).FirstOrDefault().Status == "Active")
+                if (database.HANHKHACHes.Where(s => s.CMND == cmnd).FirstOrDefault().Status == "Active")
                 {
                     context.Database.ExecuteSqlCommand("UPDATE HANHKHACH SET Status = 'UnActive' WHERE CMND = '" + cmnd + "'");
-                }       
+                }
                 else
                 {
                     context.Database.ExecuteSqlCommand("UPDATE HANHKHACH SET Status = 'Active' WHERE CMND = '" + cmnd + "'");
-                }    
+                }
             }
             return RedirectToAction("GetCustomer", "Customer");
         }
@@ -330,6 +330,29 @@ namespace HeThongBanVeMayBay.Controllers
             }
         }
 
-
+        public List<LICHSUDATVE> History(string username)
+        {
+            var rtn = new List<LICHSUDATVE>();
+            var his = from u in database.VECHUYENBAYs.Where(s => s.CMND == database.HANHKHACHes.Where(t => t.UserName == username).FirstOrDefault().CMND)
+                       join c in database.CHUYENBAYs on u.IDChuyenBay equals c.ID
+                       select new { HangBay = c.HANGBAY1.TenHangbay, IDSanBayDi = c.IDSanBayDi, IDSanBayDen = c.IDSanBayDen, NgayBay = c.NgayBay, GioBay = c.GioBay, GiaTien = u.GiaTien };
+            foreach (var item in his.ToList())
+            {
+                rtn.Add(new LICHSUDATVE
+                {
+                    HangBay = item.HangBay,
+                    IDSanBayDi = item.IDSanBayDi,
+                    IDSanBayDen = item.IDSanBayDen,
+                    NgayBay = item.NgayBay,
+                    GioBay = item.GioBay,
+                    GiaTien = item.GiaTien,
+                });
+            }
+            return rtn;
+        }
+        public PartialViewResult RenderHistory(string username)
+        {
+            return PartialView(History(username));
+        }
     }
 }

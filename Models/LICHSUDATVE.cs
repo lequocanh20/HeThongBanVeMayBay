@@ -6,16 +6,16 @@ using System.Web;
 
 namespace HeThongBanVeMayBay.Models
 {
-    public class MADATCHO
+    public class LICHSUDATVE
     {
+        [Display(Name = "Hãng bay")]
+        public string HangBay { get; set; }
+
         [Display(Name = "Sân bay đi")]
         public string IDSanBayDi { get; set; }
 
         [Display(Name = "Sân bay đến")]
         public string IDSanBayDen { get; set; }
-
-        [Display(Name = "Hãng bay")]
-        public string HangBay { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]

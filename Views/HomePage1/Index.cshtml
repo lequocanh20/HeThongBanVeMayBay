@@ -9,7 +9,8 @@
                 <h1>VIỆT NAM<br><strong class="white">NHỮNG CHUYẾN ĐI</strong></h1>
                 <div class="button_section"> <a class="main_bt" href="#">Read More</a></div>
                 <div class="container">
-                    <form class="main-form">
+                    @using (Html.BeginForm("Search", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data", @class = "main-form" }))
+                    {
                         <h3>Find Your Tour</h3>
                         <div class="row">
                             <div class="col-md-9">
@@ -30,16 +31,26 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <label>FLYING FROM</label>
-                                        <select class="form-control">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
+                                        <select name="FlyingFrom" class="form-control">
+                                            @using (var context = new HeThongBanVeMayBay.Models.QLBANVEMAYBAYEntities())
+                                            {
+                                                foreach (var item in context.SANBAYs)
+                                                {
+
+                                                    <option value="@item.IATA">@item.TenSB</option>
+
+                                                }
+                                            }
                                         </select>
                                         <label>FLYING TO</label>
-                                        <select class="form-control" name="Any">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
+                                        <select name="FlyingTo" class="form-control">
+                                            @using (var context = new HeThongBanVeMayBay.Models.QLBANVEMAYBAYEntities())
+                                            {
+                                                foreach (var item in context.SANBAYs)
+                                                {
+                                                    <option value="@item.IATA">@item.TenSB</option>
+                                                }
+                                            }
                                         </select>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
@@ -66,11 +77,13 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <label>DEPARTING</label>
-                                        <input class="form-control" placeholder="Any" type="date" name="Any">
+                                        @{ DateTime dt = DateTime.Now;
+                                            string date = dt.ToString("yyyy-MM-dd");}
+                                        <input name="DepartDate" class="form-control" @*min="@date"*@ type="date" required id="txtDepartDate">
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <label>RETURNING</label>
-                                        <input class="form-control" placeholder="Any" type="date" name="Any">
+                                        <input name="ReturnDate" class="form-control" @*min="@date"*@ type="date" id="txtReturnDate">
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <label>TRAVEL CLASS</label>
@@ -79,10 +92,10 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                                <a href="#">search</a>
+                                <button type="submit">search</button>
                             </div>
                         </div>
-                    </form>
+                    }
                 </div>
             </div>
         </div>

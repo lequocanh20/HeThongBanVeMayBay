@@ -155,6 +155,7 @@
     <Compile Include="Models\CHUYENBAY.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LICHSUDATVE.cs" />
     <Compile Include="Models\DBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2202,7 +2203,6 @@
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Office\Create.cshtml" />
     <Content Include="Views\BookTicket\Search.cshtml" />
-    <Content Include="Views\BookTicket\RenderOneWay.cshtml" />
     <Content Include="Views\BookTicket\RenderTwoWay.cshtml" />
     <Content Include="Views\BookTicket\OrderOneWay.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
@@ -2222,6 +2222,8 @@
     <Content Include="Views\FlightTicket\Details.cshtml" />
     <Content Include="Views\BookTicket\Details.cshtml" />
     <Content Include="Views\HomePage1\Index.cshtml" />
+    <Content Include="Views\Customer\RenderHistory.cshtml" />
+    <Content Include="Views\BookTicket\RenderOneWay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

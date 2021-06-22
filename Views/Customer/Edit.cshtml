@@ -2,7 +2,7 @@
 @using HeThongBanVeMayBay.Models
 @{
     ViewBag.Title = "Edit";
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
 <h2>Edit</h2>
@@ -105,9 +105,13 @@
         </div>
     </div>
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @{
+        Html.RenderAction("RenderHistory", "Customer", new { username = User.Identity.Name });
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index", "HomePage1")
 </div>
 
 @section Scripts {
