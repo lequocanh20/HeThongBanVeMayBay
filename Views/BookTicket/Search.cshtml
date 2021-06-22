@@ -73,25 +73,12 @@
         @{
             if (Convert.ToString(Session["ReturnDate"]) != "")
             {
-                using (Html.BeginForm("Accept", "BookTicket", FormMethod.Post))
-                {
-                    Html.RenderAction("RenderOneWay");
-                    Html.RenderAction("RenderTwoWay");
-                    <div>
-                        <input type="submit" value="Tiếp tục" />
-                    </div>
-                    Session.Remove("ReturnDate");
-                }
+                Html.RenderAction("RenderTwoWay");
+                Session.Remove("ReturnDate");
             }
             else
             {
-                using (Html.BeginForm("Accept", "BookTicket", FormMethod.Post))
-                {
-                    Html.RenderAction("RenderOneWay");
-                    <div>
-                        <input type="submit" value="Tiếp tục" />
-                    </div>
-                }
+                Html.RenderAction("RenderOneWay");
             }
         }
     </div>

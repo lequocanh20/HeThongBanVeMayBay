@@ -59,7 +59,7 @@ namespace HeThongBanVeMayBay.Controllers
                     smtp.Send(mail);
                 }
             }
-            return RedirectToAction("Index", "BookTicket");
+            return RedirectToAction("Index", "HomePage1");
         }
 
         public List<CHUYENBAY> ChooseOneWay(int Id)
