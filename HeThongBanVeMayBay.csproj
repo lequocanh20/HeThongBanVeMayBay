@@ -145,7 +145,6 @@
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\FlightTicketController.cs" />
     <Compile Include="Controllers\HomePage1Controller.cs" />
-    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,39 +252,6 @@
     <Content Include="AssetHome1\js\jquery.validate.js" />
     <Content Include="AssetHome1\js\plugin.js" />
     <Content Include="AssetHome1\js\popper.min.js" />
-    <Content Include="AssetsHome\css\style.css" />
-    <Content Include="AssetsHome\favicons\android-chrome-192x192.png" />
-    <Content Include="AssetsHome\favicons\android-chrome-512x512.png" />
-    <Content Include="AssetsHome\favicons\apple-touch-icon.png" />
-    <Content Include="AssetsHome\favicons\favicon-16x16.png" />
-    <Content Include="AssetsHome\favicons\favicon-32x32.png" />
-    <Content Include="AssetsHome\favicons\favicon.ico" />
-    <Content Include="AssetsHome\images\above-the-clouds.jpg" />
-    <Content Include="AssetsHome\images\aircraft-cabin.jpg" />
-    <Content Include="AssetsHome\images\aircraft-engine-960w.jpg" />
-    <Content Include="AssetsHome\images\aircraft-engine.jpg" />
-    <Content Include="AssetsHome\images\aircraft-hangar-960w.jpg" />
-    <Content Include="AssetsHome\images\aircraft-hangar-front-web-960w.jpg" />
-    <Content Include="AssetsHome\images\aircraft-hangar-front.jpg" />
-    <Content Include="AssetsHome\images\aircraft-hangar-lg.jpg" />
-    <Content Include="AssetsHome\images\aircraft-taxi-night-960w.jpg" />
-    <Content Include="AssetsHome\images\aircraft-taxi-night.jpg" />
-    <Content Include="AssetsHome\images\aircraft-terminal-dusk.jpg" />
-    <Content Include="AssetsHome\images\departure-board.jpg" />
-    <Content Include="AssetsHome\images\engine-fanblades.jpg" />
-    <Content Include="AssetsHome\images\escalator.jpg" />
-    <Content Include="AssetsHome\images\github-projects.png" />
-    <Content Include="AssetsHome\images\logo-image-reverse.png" />
-    <Content Include="AssetsHome\images\logo-image.jpg" />
-    <Content Include="AssetsHome\images\man-touch-finger-data-connection.jpg" />
-    <Content Include="AssetsHome\images\man-touch-finger-data-network.jpg" />
-    <Content Include="AssetsHome\images\man-touch-finger-digital-change-data.jpg" />
-    <Content Include="AssetsHome\images\portrait-man-1.jpg" />
-    <Content Include="AssetsHome\images\portrait-man-2.jpg" />
-    <Content Include="AssetsHome\images\portrait-woman-1.jpg" />
-    <Content Include="AssetsHome\images\portrait-woman-2.jpg" />
-    <Content Include="AssetsHome\images\topology.png" />
-    <Content Include="AssetsHome\images\travelator.jpg" />
     <Content Include="Assets\css\sb-admin-2.css" />
     <Content Include="Assets\css\sb-admin-2.min.css" />
     <Content Include="Assets\img\undraw_posting_photo.svg" />
@@ -2166,7 +2132,6 @@
     <Content Include="Assets\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Assets\vendor\jquery\jquery.min.map" />
     <Content Include="Assets\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="AssetsHome\favicons\site.webmanifest" />
     <Content Include="AssetHome1\fonts\fontawesome-webfont.eot" />
     <Content Include="AssetHome1\fonts\fontawesome-webfont.ttf" />
     <Content Include="AssetHome1\fonts\fontawesome-webfont.woff" />
@@ -2234,10 +2199,6 @@
     <Content Include="Views\Aircraft\Create.cshtml" />
     <Content Include="Views\Aircraft\Details.cshtml" />
     <Content Include="Views\Aircraft\Edit.cshtml" />
-    <Content Include="Views\HomePage\Index.cshtml" />
-    <Content Include="Views\HomePage\Contact.cshtml" />
-    <Content Include="Views\HomePage\About.cshtml" />
-    <Content Include="Views\HomePage\Service.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Office\Create.cshtml" />
     <Content Include="Views\BookTicket\Search.cshtml" />
@@ -2253,7 +2214,6 @@
     <Content Include="Views\Customer\Payment.cshtml" />
     <Content Include="Views\Authentication\LoginHK.cshtml" />
     <Content Include="Views\Customer\Register.cshtml" />
-    <Content Include="Views\HomePage1\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\BookTicket\GetBookTicket.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
@@ -2261,6 +2221,7 @@
     <Content Include="Views\FlightTicket\Index.cshtml" />
     <Content Include="Views\FlightTicket\Details.cshtml" />
     <Content Include="Views\BookTicket\Details.cshtml" />
+    <Content Include="Views\HomePage1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -160,7 +160,7 @@ namespace HeThongBanVeMayBay.Controllers
                     Session["email"] = Kh.Email;
                     RandomGenerator generatorcd = new RandomGenerator();
                     string randomcd = generatorcd.Generate();
-                    context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'Active')");
+                    context.Database.ExecuteSqlCommand("INSERT INTO PHIEUDATCHO VALUES ('" + randomcd + "', '" + cd + "', '" + Kh.CMND + "','" + GiaTienCd + "', 'Economic', 'UnActive')");
                     context.SaveChanges();
                     if(Convert.ToString(Session["CMND"]) == "")
                     {

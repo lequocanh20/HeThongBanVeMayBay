@@ -13,6 +13,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+    @Scripts.Render("~/bundles/jqueryval")
     <!-- bootstrap css -->
     <link type="text/css" rel="stylesheet" href="~/AssetHome1/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="~/AssetHome1/css/Search.css" />
@@ -79,13 +80,11 @@
                                         <li> <a href="#about">Về chúng tôi</a> </li>
                                         <li><a href="#contact">Liên hệ</a></li>
                                         <li>
-                                            <form id="masthead-search">
-                                                @using (Html.BeginForm("SearchDatCho", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                                {
-                                                    <input type="text" name="madatcho" aria-labelledby="search-label" placeholder="Search…" class="draw">
-                                                    <button type="submit">→</button>
-                                                }
-                                            </form>
+                                            @using (Html.BeginForm("SearchDatCho", "BookTicket", FormMethod.Post, new { enctype = "multipart/form-data", id = "masthead-search" }))
+                                            {
+                                                <input type="text" name="madatcho" aria-labelledby="search-label" placeholder="Search…" class="draw">
+                                                <button type="submit">→</button>
+                                            }
                                         </li>
                                         @if (Session["IsCustomer"] != null)
                                         {
@@ -237,5 +236,6 @@
     </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
