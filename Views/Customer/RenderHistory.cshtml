@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.NgayBay)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
         <th></th>
     </tr>
     @foreach (LICHSUDATVE lsdv in Model)
@@ -45,6 +48,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => lsdv.NgayBay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => lsdv.Status)
             </td>
         </tr>
     }

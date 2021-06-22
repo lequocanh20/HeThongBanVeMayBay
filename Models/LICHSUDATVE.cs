@@ -29,5 +29,8 @@ namespace HeThongBanVeMayBay.Models
         [DisplayFormat(DataFormatString = "{0:C0}")]
         [DataType(DataType.Currency)]
         public int GiaTien { get; set; }
+
+        [Display(Name = "Giờ bay")]
+        public string Status { get; set; }
     }
 }

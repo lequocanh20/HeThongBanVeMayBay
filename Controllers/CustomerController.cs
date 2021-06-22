@@ -335,7 +335,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<LICHSUDATVE>();
             var his = from u in database.VECHUYENBAYs.Where(s => s.CMND == database.HANHKHACHes.Where(t => t.UserName == username).FirstOrDefault().CMND)
                        join c in database.CHUYENBAYs on u.IDChuyenBay equals c.ID
-                       select new { HangBay = c.HANGBAY1.TenHangbay, IDSanBayDi = c.IDSanBayDi, IDSanBayDen = c.IDSanBayDen, NgayBay = c.NgayBay, GioBay = c.GioBay, GiaTien = u.GiaTien };
+                       select new { HangBay = c.HANGBAY1.TenHangbay, IDSanBayDi = c.IDSanBayDi, IDSanBayDen = c.IDSanBayDen, NgayBay = c.NgayBay, GioBay = c.GioBay, GiaTien = u.GiaTien, Status = u.Status };
             foreach (var item in his.ToList())
             {
                 rtn.Add(new LICHSUDATVE
@@ -346,6 +346,7 @@ namespace HeThongBanVeMayBay.Controllers
                     NgayBay = item.NgayBay,
                     GioBay = item.GioBay,
                     GiaTien = item.GiaTien,
+                    Status = item.Status
                 });
             }
             return rtn;
