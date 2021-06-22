@@ -229,6 +229,11 @@ namespace HeThongBanVeMayBay.Controllers
         [Authorize(Roles = "true, false")]
         public ActionResult Delete(string madatcho, PHIEUDATCHO pdc)
         {
+            using (var context = new QLBANVEMAYBAYEntities())
+            {
+                context.Database.ExecuteSqlCommand("UPDATE CHUYENBAY SET SoGheHang2 = SoGheHang2 + 1 WHERE ID = " + database.PHIEUDATCHOes.Where(s => s.IDDatCho == madatcho).FirstOrDefault().IDChuyenBay + "");
+                context.SaveChanges();
+            }
             pdc = database.PHIEUDATCHOes.Where(s => s.IDDatCho == madatcho).FirstOrDefault();
             database.PHIEUDATCHOes.Remove(pdc);
             database.SaveChanges();
@@ -240,7 +245,8 @@ namespace HeThongBanVeMayBay.Controllers
         {
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                context.Database.ExecuteSqlCommand("UPDATE PHIEUDATCHO SET Status = 'Active' WHERE IDVeChuyenBay = '" + madatcho + "'");
+                context.Database.ExecuteSqlCommand("UPDATE PHIEUDATCHO SET TrangThai = 'Active' WHERE IDDatCho = '" + madatcho + "'");
+                context.SaveChanges();
             }
             return RedirectToAction("GetBookTicket", "BookTicket");
         }

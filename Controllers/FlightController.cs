@@ -17,7 +17,7 @@ namespace HeThongBanVeMayBay.Controllers
             var rtn = new List<CHUYENBAY>();
             using (var context = new QLBANVEMAYBAYEntities())
             {
-                foreach (var item in context.CHUYENBAYs.Where(s => s.Status == "Active"))
+                foreach (var item in context.CHUYENBAYs.Where(s => s.Status == "Active")
                 {
                     rtn.Add(new CHUYENBAY
                     {

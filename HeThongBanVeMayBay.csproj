@@ -2278,6 +2278,7 @@
     <Content Include="Login\scss\bootstrap\_utilities.scss" />
     <Content Include="Login\scss\bootstrap\_variables.scss" />
     <Content Include="Login\scss\style.scss" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HideDate.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2320,7 +2321,6 @@
     <Content Include="Views\Flight\Edit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
-    <Content Include="Views\Employee\AddNewLink.cshtml" />
     <Content Include="Views\Office\Index.cshtml" />
     <Content Include="Views\Office\Details.cshtml" />
     <Content Include="Views\Office\Edit.cshtml" />
@@ -2328,7 +2328,6 @@
     <Content Include="Views\Aviation\Create.cshtml" />
     <Content Include="Views\Aviation\Edit.cshtml" />
     <Content Include="Views\Aviation\Details.cshtml" />
-    <Content Include="Views\Aviation\AddNewLink.cshtml" />
     <Content Include="Views\Aircraft\Index.cshtml" />
     <Content Include="Views\Aircraft\Create.cshtml" />
     <Content Include="Views\Aircraft\Details.cshtml" />

@@ -23,6 +23,7 @@ namespace HeThongBanVeMayBay.Models
         }
 
         public int ID { get; set; }
+
         [Display(Name = "Tài khoản")]
         public string UserName { get; set; }
 

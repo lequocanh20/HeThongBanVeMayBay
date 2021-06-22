@@ -83,7 +83,7 @@ namespace HeThongBanVeMayBay.Controllers
                 UserStatus status = GetUserValidity1(kh);
                 if (status == UserStatus.NonAuthenticatedUser)
                 {
-                    FormsAuthentication.SetAuthCookie(kh.UserName, false);
+                    //FormsAuthentication.SetAuthCookie(kh.UserName, false);
                     Session["IsCustomer"] = kh.UserName;
                     if (returnurl == null)
                     {
@@ -127,15 +127,15 @@ namespace HeThongBanVeMayBay.Controllers
             var status = UserStatus.NonAuthenticatedUser;
             foreach (var item in database.NHANVIENs.Where(x => x.UserName == nv.UserName && x.Pass == nv.Pass))
             {
-                if (database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "true" || database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "diffe")
+                if (database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "true" && database.NHANVIENs.Where(s => s.UserName == nv.UserName).FirstOrDefault().Status == "Active" || database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "diffe" && database.NHANVIENs.Where(s => s.UserName == nv.UserName).FirstOrDefault().Status == "Active")
                 {
                     status = UserStatus.AuthenticatedAdmin;
                 }
-                else if (database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "false")
+                else if (database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "false" && database.NHANVIENs.Where(s => s.UserName == nv.UserName).FirstOrDefault().Status == "Active")
                 {
                     status = UserStatus.AuthenticatedUser;
                 }
-                else if(database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "true" || database.CHUCVUs.Where(x => x.IDChucVu.Trim() == item.ChucVu.Trim()).FirstOrDefault().IsAdmin == "diffe")
+                else if(database.NHANVIENs.Where(s => s.UserName == nv.UserName).FirstOrDefault().Status == "UnActive")
                 {
                     status = UserStatus.Block;
                 }    

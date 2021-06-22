@@ -340,7 +340,6 @@ F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.Cor
 F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.CopyComplete
 F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.dll
 F:\HeThongBanVeMayBay\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.pdb
-D:\Do an\LTW NC\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csprojAssemblyReference.cache
 F:\HeThongBanVeMayBay\bin\HeThongBanVeMayBay.dll.config
 F:\HeThongBanVeMayBay\bin\HeThongBanVeMayBay.dll
 F:\HeThongBanVeMayBay\bin\HeThongBanVeMayBay.pdb
@@ -428,3 +427,4 @@ F:\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.CoreCompileInputs.cach
 F:\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.CopyComplete
 F:\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.dll
 F:\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.pdb
+D:\Do an\LTW NC\HeThongBanVeMayBay\obj\Debug\HeThongBanVeMayBay.csproj.AssemblyReference.cache
